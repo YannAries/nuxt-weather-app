@@ -1,0 +1,17 @@
+//  -----------------------------
+//  Variables
+//  -----------------------------
+
+// -- Font definitions --
+// Fonts here should use a simple name from their font name
+// Make sure to have fallback to a similar font that's bundle with every browser
+// Begins with $font-
+
+$font-arial: "Arial", sans-serif;
+
+// -- Font uses --
+// Fonts here should use a font above to be asigned to a use in an other module
+// You can combine most uses if there's a logical grouping to be made
+// Begins with $f-
+
+$f-body: $font-arial;

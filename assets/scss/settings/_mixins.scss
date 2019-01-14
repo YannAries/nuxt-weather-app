@@ -1,0 +1,106 @@
+//  -----------------------------
+//  Mixins
+//  -----------------------------
+
+// Clearfix
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+        line-height: 0;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// Visuallyhidden
+@mixin visuallyhidden($hide: true) {
+    @if $hide == true {
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+    } @else {
+        position: static;
+        overflow: visible;
+        clip: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+    }
+}
+
+@mixin headings {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+        @content;
+    }
+}
+
+// REM font-size
+@mixin rem-fontsize($size) {
+    font-size: remove-px($size) + px;
+    font-size: rem($size);
+}
+
+// REM line-height
+@mixin rem-lineheight($size) {
+    line-height: remove-px($size) + px;
+    line-height: rem($size);
+}
+
+// REM font-size and line-height
+@mixin rem-typo($font, $line: 1.4) {
+    font-size: remove-px($font) + px;
+    font-size: rem($font);
+    @if ($line == 1.4) {
+        line-height: $line;
+    } @else {
+        line-height: remove-px($line) + px;
+        line-height: rem($line);
+    }
+}
+
+// Remove-px
+@function remove-px($target) {
+    @if not unitless($target) {
+        @return $target / 1px ;
+    } @else {
+        @return $target;
+    }
+}
+
+// Calculate REM
+@function rem($size) {
+    $values: ();
+    @if type-of($size) == list {
+        @each $current in $size {
+            $values: append($values, remove-px($current) / 16 * 1rem);
+        }
+    } @else {
+        $values: remove-px($size) / 16 * 1rem;
+    }
+    @return $values;
+}
+
+@mixin orientation($orientation) {
+    @media screen and (orientation: #{$orientation}) {
+        @content;
+    }
+}
