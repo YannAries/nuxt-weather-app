@@ -43,7 +43,7 @@ module.exports = {
   modules: [
     'nuxt-sass-resources-loader'
   ],
-  sassResources: [ '@/assets/scss/global.scss' ],
+  sassResources: [ '@/assets/scss/settings/*' ],
 
   /*
   ** Build configuration
