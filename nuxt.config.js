@@ -1,5 +1,30 @@
 const pkg = require('./package')
 
+const svgo = {
+    plugins: [
+        { removeTitle: true },
+        { removeDesc: true },
+        { removeViewBox: false },
+        { removeDimensions: true },
+        {
+            cleanupIDs: {
+                remove: true,
+                minify: false,
+                preserve: [],
+                force: true,
+            },
+        },
+        {
+            removeAttrs: {
+                attrs: [
+                    'fill',
+                    'opacity',
+                ],
+            },
+        },
+    ],
+};
+
 module.exports = {
     mode: 'universal',
 
@@ -47,9 +72,7 @@ module.exports = {
     sassResources: [ '@/assets/scss/settings/*' ],
     svgLoader: {
         svgoConfig: {
-            plugins: [
-                { prefixIds: false }, // Disables prefixing for SVG IDs
-            ],
+            svgo,
         },
     },
 
@@ -70,6 +93,27 @@ module.exports = {
                     exclude: /(node_modules)/,
                 })
             }
+            const vueRule = config.module.rules.find(rule => rule.test.test('.vue'));
+            vueRule.use = [
+                {
+                    loader: vueRule.loader,
+                    options: vueRule.options,
+                },
+                {
+                    loader: 'vue-svg-inline-loader',
+                    options: {
+                        inlineKeyword: 'inline',
+                        inlineStrict: true,
+                        spriteKeyword: 'sprite',
+                        spriteStrict: false,
+                        removeAttributes: ['alt', 'src'],
+                        xhtml: false,
+                        svgo,
+                    },
+                },
+            ];
+            delete vueRule.loader;
+            delete vueRule.options;
         },
     },
 }

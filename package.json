@@ -22,7 +22,8 @@
     "nuxt": "^2.0.0",
     "nuxt-sass-resources-loader": "^2.0.5",
     "nuxt-svg-loader": "^1.0.1",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "vue-svg-inline-loader": "^1.2.10"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
