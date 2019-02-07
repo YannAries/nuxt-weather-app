@@ -1,4 +1,4 @@
-const pkg = require('./package') // ! TODO Not present in project file
+const pkg = require('./package.json')
 const lang = require('./i18n/translations.js');
 const config = require('./config/index.js');
 
