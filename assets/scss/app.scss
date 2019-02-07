@@ -1,6 +1,10 @@
 //  -----------------------------
 //  Init foundation
 //  -----------------------------
+@import "./settings/variables";
+@import "./settings/functions";
+@import "./settings/mixins";
+@import "./settings/colors";
 
 @import "./base/base";
 @import "./base/fonts";

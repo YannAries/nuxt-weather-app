@@ -13,7 +13,13 @@
 
 <script>
 export default {
-    name: 'Routes',
+    nuxtI18n: {
+        paths: {
+            en: '/routes', // -> accessible at /en/routes
+            fr: '/chemins', // -> accessible at /chemins
+        },
+    },
+
     data() {
         return {
             items: [],

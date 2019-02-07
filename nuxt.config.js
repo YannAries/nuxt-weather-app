@@ -1,4 +1,6 @@
-const pkg = require('./package')
+const pkg = require('./package') // ! TODO Not present in project file
+const lang = require('./i18n/translations.js');
+const config = require('./config/index.js');
 
 const svgo = {
     plugins: [
@@ -26,6 +28,13 @@ const svgo = {
 };
 
 module.exports = {
+    server: {
+        port: config.env.server.port,
+        host: config.env.server.host,
+    },
+    // Check auth key to modify facebook & google+ ID
+    env: config.env,
+
     mode: 'universal',
 
     /*
@@ -41,6 +50,9 @@ module.exports = {
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         ],
+        script: [
+            { src: 'https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch,Object.entries' },
+        ],
     },
 
     /*
@@ -52,14 +64,19 @@ module.exports = {
     ** Global CSS
     */
     css: [
-        '@/assets/scss/app.scss',
-        '@/assets/scss/foundation.scss',
+        '~assets/scss/app.scss',
+        '~assets/scss/foundation.scss',
     ],
 
     /*
     ** Plugins to load before mounting the App
     */
     plugins: [
+        // Adds internationalization and global components
+        '~/plugins/slugify.js',
+        '~/plugins/validator.js',
+        { src: '~/plugins/localStorage.js', ssr: false },
+    //'~/plugins/element-ui.js',
     ],
 
     /*
@@ -68,6 +85,29 @@ module.exports = {
     modules: [
         'nuxt-sass-resources-loader',
         'nuxt-svg-loader',
+        ['@nuxtjs/moment', ['fr']],
+        ['nuxt-i18n', {
+            // Options
+            vueI18nLoader: false,
+            locales: [
+                {
+                    code: 'en',
+                    name: 'English',
+                    iso: 'en-US',
+                },
+                {
+                    code: 'fr',
+                    name: 'Français',
+                    iso: 'fr-FR',
+                },
+            ],
+            defaultLocale: 'en',
+
+            vueI18n: {
+                messages: lang.translations,
+            },
+
+        }],
     ],
     sassResources: [ '@/assets/scss/settings/*' ],
     svgLoader: {

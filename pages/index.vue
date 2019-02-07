@@ -1,8 +1,20 @@
 <template>
     <div class="hello">
+
+        <nuxt-link
+            v-for="locale in $i18n.locales"
+            v-if="locale.code !== $i18n.locale"
+            :key="locale.code"
+            :to="switchLocalePath(locale.code)"
+            class="button lang"
+        >
+            {{ locale.name }}
+        </nuxt-link>
+
         <img src="@/assets/img/logo.png" />
         <h1>{{ msg }}</h1>
-        <h2>Essential Links</h2>
+
+        <h2>{{ $t('home.essential-link') }}</h2>
         <ul>
             <li>
                 <a href="https://vuejs.org" target="_blank">Core Docs</a>
@@ -11,7 +23,7 @@
                 <a href="https://forum.vuejs.org" target="_blank">Forum</a>
             </li>
             <li>
-                <a href="https://chat.vuejs.org" target="_blank">Community Chat</a>
+                <a href="https://chat.vuejs.org" target="_blank">{{ $t('home.ecosystem') }}</a>
             </li>
             <li>
                 <a href="https://twitter.com/vuejs" target="_blank">Twitter</a>
@@ -21,7 +33,8 @@
                 <a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a>
             </li>
         </ul>
-        <h2>Ecosystem</h2>
+
+        <h2>{{ $t('home.ecosystem') }}</h2>
         <ul>
             <li>
                 <a href="http://router.vuejs.org/" target="_blank">vue-router</a>
@@ -36,16 +49,17 @@
                 <a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a>
             </li>
         </ul>
-        <router-link to="routes" class="button primary">Routes</router-link>
+
+        <router-link to="routes" class="button primary">{{ $t('menu.routes') }}</router-link>
+
     </div>
 </template>
 
 <script>
 export default {
-    name: 'HelloWorld',
     data() {
         return {
-            msg: 'Welcome to Your Vue.js App',
+            msg: this.$t('home.welcome'),
         };
     },
 };
@@ -74,5 +88,18 @@ li {
 }
 a {
     color: #42b983;
+}
+.button {
+    display: block;
+    background-color: #42b983;
+    color: white;
+    margin: 30px auto;
+    max-width: 150px;
+}
+
+.lang {
+    position: fixed;
+    top: 0px;
+    right: 30px;
 }
 </style>
