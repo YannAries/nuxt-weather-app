@@ -101,7 +101,7 @@ module.exports = {
                     iso: 'fr-FR',
                 },
             ],
-            defaultLocale: 'en',
+            defaultLocale: 'fr',
 
             vueI18n: {
                 messages: lang.translations,
