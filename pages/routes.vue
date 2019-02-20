@@ -1,13 +1,20 @@
 <template>
     <div class="routes">
+
+        <h1>{{ $t('menu.routes') }}</h1>
+
         <template v-for="item in items">
+
+            <!-- VueJs routing style -->
             <router-link
                 :key="item.name"
                 :to="item.path"
             >
                 {{ item.name }}
             </router-link>
+
         </template>
+
     </div>
 </template>
 
