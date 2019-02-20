@@ -6,7 +6,7 @@
             v-if="locale.code !== $i18n.locale"
             :key="locale.code"
             :to="switchLocalePath(locale.code)"
-            class="button lang"
+            class="button lang primary"
         >
             {{ locale.name }}
         </nuxt-link>

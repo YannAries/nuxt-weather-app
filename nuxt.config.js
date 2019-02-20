@@ -64,8 +64,8 @@ module.exports = {
     ** Global CSS
     */
     css: [
-        '~assets/scss/app.scss',
-        '~assets/scss/foundation.scss',
+        { src: '~assets/scss/app.scss', lang: 'scss' },
+        { src: '~assets/scss/foundation.scss', lang: 'scss' },
     ],
 
     /*
@@ -83,8 +83,8 @@ module.exports = {
     ** Nuxt.js modules
     */
     modules: [
-        'nuxt-sass-resources-loader',
         'nuxt-svg-loader',
+        '@nuxtjs/style-resources',
         ['@nuxtjs/moment', ['fr']],
         ['nuxt-i18n', {
             // Options
@@ -109,7 +109,11 @@ module.exports = {
 
         }],
     ],
-    sassResources: [ '@/assets/scss/settings/*' ],
+
+    styleResources: {
+        sass: [ '~assets/scss/settings/*' ],
+    },
+
     svgLoader: {
         svgoConfig: {
             svgo,
