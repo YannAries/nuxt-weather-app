@@ -9,25 +9,25 @@ You have to know these following documentations if you never read it:
 
 ``` bash
 # install dependencies
-$ npm install
+$ yarn install
 
 # serve with hot reload at localhost:3000
-$ npm run dev
+$ yarn run dev
 
-# build for dev and launch server (Most of the case you should use npm run dev)
-$ npm run build
-$ npm start
+# build for dev and launch server (Most of the case you should use yarn run dev)
+$ yarn run build
+$ yarn start
 
 # build for staging and launch server (For staging and use env-staging.js)
-$ npm run build-staging
-$ npm start-staging
+$ yarn run build-staging
+$ yarn start-staging
 
 # build for production and launch server (For production and use env-prod.js)
-$ npm run build-production
-$ npm start
+$ yarn run build-production
+$ yarn start
 
 # generate static project
-$ npm run generate
+$ yarn run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
@@ -35,7 +35,7 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 ## Translation
 
 - All translation are in the folder `i18n`
-- After a modification in the translation file you have to restart with a new `npm run dev`
+- After a modification in the translation file you have to restart with a new `yarn run dev`
 - Don't hesitate to check documentation about [nuxt-i18n](https://nuxt-community.github.io/nuxt-i18n/basic-usage.html). It explains how to use it.
 
 You can use translation in template like that: `$t('menu.lang')`
@@ -73,17 +73,17 @@ eg: `A title & any text` -> `a-title-and-any-text`
 
 `this.$validator.{{MyValidatorRule}}`
 
-This is the Validator NPM package.
-Take a look to the npm section to learn more.
+This is the Validator yarn package.
+Take a look to the yarn section to learn more.
 
 ### LocalStorage
 
 This plugin is about the configuration of the store persistance
-I suggest you to see this: <https://www.npmjs.com/package/vuex-persistedstate>
+I suggest you to see this: <https://www.yarnjs.com/package/vuex-persistedstate>
 
-## Npm
+## Node modules
 
-List of added npm
+List of added node modules
 
 ### Validator
 
@@ -94,12 +94,12 @@ E.G:
 - credit cart
 - isMobilePhone
 
-<https://www.npmjs.com/package/validator>
+<https://www.yarnjs.com/package/validator>
 
 ### vuex-persistedstate
 
 That will persist the store.
-<https://www.npmjs.com/package/vuex-persistedstate>
+<https://www.yarnjs.com/package/vuex-persistedstate>
 
 ### Moment
 
