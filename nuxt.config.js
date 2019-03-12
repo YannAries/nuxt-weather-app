@@ -76,7 +76,6 @@ module.exports = {
         '@/plugins/slugify.js',
         '@/plugins/validator.js',
         { src: '@/plugins/localStorage.js', ssr: false },
-    //'~/plugins/element-ui.js',
     ],
 
     /*
