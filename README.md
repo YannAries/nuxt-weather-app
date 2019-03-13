@@ -74,12 +74,12 @@ eg: `A title & any text` -> `a-title-and-any-text`
 `this.$validator.{{MyValidatorRule}}`
 
 This is the Validator yarn package.
-Take a look to the yarn section to learn more.
+Take a look to the node modules section to learn more.
 
 ### LocalStorage
 
 This plugin is about the configuration of the store persistance
-I suggest you to see this: <https://www.yarnjs.com/package/vuex-persistedstate>
+I suggest you to see this: <https://www.nodejs.com/package/vuex-persistedstate>
 
 ## Node modules
 
@@ -94,12 +94,12 @@ E.G:
 - credit cart
 - isMobilePhone
 
-<https://www.yarnjs.com/package/validator>
+<https://www.nodejs.com/package/validator>
 
 ### vuex-persistedstate
 
 That will persist the store.
-<https://www.yarnjs.com/package/vuex-persistedstate>
+<https://www.nodejs.com/package/vuex-persistedstate>
 
 ### Moment
 
