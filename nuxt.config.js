@@ -103,8 +103,9 @@ module.exports = {
     ],
 
     sentry: {
+        initialize: process.env.NODE_ENV !== 'development',
         dsn: process.env.SENTRY_DSN,
-        config: {},
+        config: {}, // Additional config
     },
 
     styleResources: {
