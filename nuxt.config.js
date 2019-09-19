@@ -4,18 +4,11 @@ require('dotenv').config();
 
 const svgo = {
     plugins: [
+        { prefixIds: true },
         { removeTitle: true },
         { removeDesc: true },
         { removeViewBox: false },
         { removeDimensions: true },
-        {
-            cleanupIDs: {
-                remove: true,
-                minify: false,
-                preserve: [],
-                force: true,
-            },
-        },
         {
             removeAttrs: {
                 attrs: ['fill', 'opacity'],
@@ -45,6 +38,8 @@ module.exports = {
                 name: 'viewport',
                 content: 'width=device-width, initial-scale=1',
             },
+            { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+            { hid: 'format-detection', name: 'format-detection', content: 'telephone=no' },
             {
                 hid: 'description',
                 name: 'description',
@@ -52,12 +47,6 @@ module.exports = {
             },
         ],
         link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-        script: [
-            {
-                src:
-                    'https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch,Object.entries',
-            },
-        ],
     },
 
     /*
@@ -68,19 +57,14 @@ module.exports = {
     /*
      ** Global CSS
      */
-    css: [
-        { src: '@/assets/scss/app.scss', lang: 'scss' },
-        { src: '@/assets/scss/foundation.scss', lang: 'scss' },
-    ],
+    css: [{ src: '@/assets/scss/app.scss', lang: 'scss' }, { src: '@/assets/scss/foundation.scss', lang: 'scss' }],
 
     /*
      ** Plugins to load before mounting the App
      */
     plugins: [
-        // Adds internationalization and global components
-        '@/plugins/slugify.js',
-        '@/plugins/validator.js',
-        { src: '@/plugins/localStorage.js', ssr: false },
+        // '@/plugins/slugify.js',
+        // '@/plugins/validator.js',
     ],
 
     /*
@@ -119,12 +103,13 @@ module.exports = {
     ],
 
     sentry: {
+        initialize: process.env.NODE_ENV !== 'development',
         dsn: process.env.SENTRY_DSN,
-        config: {},
+        config: {}, // Additional config
     },
 
     styleResources: {
-        sass: ['@/assets/scss/settings/*'],
+        scss: ['@/assets/scss/settings/*'],
     },
 
     svgLoader: {
@@ -150,9 +135,7 @@ module.exports = {
                     exclude: /(node_modules)/,
                 });
             }
-            const vueRule = config.module.rules.find(rule =>
-                rule.test.test('.vue')
-            );
+            const vueRule = config.module.rules.find(rule => rule.test.test('.vue'));
             vueRule.use = [
                 {
                     loader: vueRule.loader,
