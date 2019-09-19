@@ -1,20 +1,13 @@
 <template>
     <div class="routes">
-
         <h1>{{ $t('menu.routes') }}</h1>
 
         <template v-for="item in items">
-
             <!-- VueJs routing style -->
-            <router-link
-                :key="item.name"
-                :to="item.path"
-            >
+            <router-link :key="item.name" :to="item.path">
                 {{ item.name }}
             </router-link>
-
         </template>
-
     </div>
 </template>
 
@@ -33,7 +26,7 @@ export default {
         };
     },
     created() {
-        this.$router.options.routes.forEach((route) => {
+        this.$router.options.routes.forEach(route => {
             if (route.path === this.$nuxt.$route.path) return;
             this.items.push({
                 name: route.name,
@@ -46,7 +39,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.routes{
+.routes {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

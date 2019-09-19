@@ -1,12 +1,9 @@
-export const state = () => ({
-})
+export const state = () => ({});
 
-export const mutations = {
-}
+export const mutations = {};
 
 export const actions = {
-    nuxtServerInit () {
-    },
-}
+    nuxtServerInit() {},
+};
 
-//export const strict = false
+// export const strict = false

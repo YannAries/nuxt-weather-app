@@ -1,9 +1,7 @@
 <template>
     <div class="hello">
-
         <nuxt-link
-            v-for="locale in $i18n.locales"
-            v-if="locale.code !== $i18n.locale"
+            v-for="locale in availableLocales"
             :key="locale.code"
             :to="switchLocalePath(locale.code)"
             class="button lang primary"
@@ -53,7 +51,6 @@
         <!-- router-link Nuxt style with (translation -> localPath) -->
         <!-- Check: https://nuxt-community.github.io/nuxt-i18n/basic-usage.html#nuxt-link -->
         <nuxt-link :to="localePath('routes')" class="button primary">{{ $t('menu.routes') }}</nuxt-link>
-
     </div>
 </template>
 
@@ -63,6 +60,11 @@ export default {
         return {
             msg: this.$t('home.welcome'),
         };
+    },
+    computed: {
+        availableLocales() {
+            return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
+        },
     },
 };
 </script>
@@ -77,7 +79,8 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-h1, h2 {
+h1,
+h2 {
     font-weight: normal;
 }
 ul {
