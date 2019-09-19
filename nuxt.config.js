@@ -1,6 +1,6 @@
 const pkg = require('./package.json')
-const lang = require('./i18n/translations.js');
-const config = require('./config/index.js');
+const lang = require('./src/i18n/translations.js');
+require('dotenv').config()
 
 const svgo = {
     plugins: [
@@ -28,12 +28,12 @@ const svgo = {
 };
 
 module.exports = {
+    srcDir: 'src/',
+
     server: {
-        port: config.env.server.port,
-        host: config.env.server.host,
+        port: process.env.PORT,
+        host: process.env.HOST,
     },
-    // Check auth key to modify facebook & google+ ID
-    env: config.env,
 
     mode: 'universal',
 
@@ -64,8 +64,8 @@ module.exports = {
     ** Global CSS
     */
     css: [
-        { src: '~assets/scss/app.scss', lang: 'scss' },
-        { src: '~assets/scss/foundation.scss', lang: 'scss' },
+        { src: '@/assets/scss/app.scss', lang: 'scss' },
+        { src: '@/assets/scss/foundation.scss', lang: 'scss' },
     ],
 
     /*
@@ -73,16 +73,16 @@ module.exports = {
     */
     plugins: [
         // Adds internationalization and global components
-        '~/plugins/slugify.js',
-        '~/plugins/validator.js',
-        { src: '~/plugins/localStorage.js', ssr: false },
-    //'~/plugins/element-ui.js',
+        '@/plugins/slugify.js',
+        '@/plugins/validator.js',
+        { src: '@/plugins/localStorage.js', ssr: false },
     ],
 
     /*
     ** Nuxt.js modules
     */
     modules: [
+        '@nuxtjs/dotenv',
         'nuxt-svg-loader',
         '@nuxtjs/style-resources',
         ['@nuxtjs/moment', ['fr']],
@@ -91,14 +91,14 @@ module.exports = {
             vueI18nLoader: false,
             locales: [
                 {
-                    code: 'en',
-                    name: 'English',
-                    iso: 'en-US',
-                },
-                {
                     code: 'fr',
                     name: 'Français',
                     iso: 'fr-FR',
+                },
+                {
+                    code: 'en',
+                    name: 'English',
+                    iso: 'en-US',
                 },
             ],
             defaultLocale: 'fr',
@@ -111,7 +111,7 @@ module.exports = {
     ],
 
     styleResources: {
-        sass: [ '~assets/scss/settings/*' ],
+        sass: [ '@/assets/scss/settings/*' ],
     },
 
     svgLoader: {
