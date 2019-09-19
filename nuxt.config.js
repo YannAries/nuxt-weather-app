@@ -1,6 +1,6 @@
-const pkg = require('./package.json')
+const pkg = require('./package.json');
 const lang = require('./src/i18n/translations.js');
-require('dotenv').config()
+require('dotenv').config();
 
 const svgo = {
     plugins: [
@@ -18,10 +18,7 @@ const svgo = {
         },
         {
             removeAttrs: {
-                attrs: [
-                    'fill',
-                    'opacity',
-                ],
+                attrs: ['fill', 'opacity'],
             },
         },
     ],
@@ -38,39 +35,47 @@ module.exports = {
     mode: 'universal',
 
     /*
-    ** Headers of the page
-    */
+     ** Headers of the page
+     */
     head: {
         title: pkg.name,
         meta: [
             { charset: 'utf-8' },
-            { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-            { hid: 'description', name: 'description', content: pkg.description },
+            {
+                name: 'viewport',
+                content: 'width=device-width, initial-scale=1',
+            },
+            {
+                hid: 'description',
+                name: 'description',
+                content: pkg.description,
+            },
         ],
-        link: [
-            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        ],
+        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
         script: [
-            { src: 'https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch,Object.entries' },
+            {
+                src:
+                    'https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch,Object.entries',
+            },
         ],
     },
 
     /*
-    ** Customize the progress-bar color
-    */
+     ** Customize the progress-bar color
+     */
     loading: { color: '#fff' },
 
     /*
-    ** Global CSS
-    */
+     ** Global CSS
+     */
     css: [
         { src: '@/assets/scss/app.scss', lang: 'scss' },
         { src: '@/assets/scss/foundation.scss', lang: 'scss' },
     ],
 
     /*
-    ** Plugins to load before mounting the App
-    */
+     ** Plugins to load before mounting the App
+     */
     plugins: [
         // Adds internationalization and global components
         '@/plugins/slugify.js',
@@ -79,39 +84,47 @@ module.exports = {
     ],
 
     /*
-    ** Nuxt.js modules
-    */
+     ** Nuxt.js modules
+     */
     modules: [
         '@nuxtjs/dotenv',
-        'nuxt-svg-loader',
+        '@nuxtjs/sentry',
         '@nuxtjs/style-resources',
+        'nuxt-svg-loader',
         ['@nuxtjs/moment', ['fr']],
-        ['nuxt-i18n', {
-            // Options
-            vueI18nLoader: false,
-            locales: [
-                {
-                    code: 'fr',
-                    name: 'Français',
-                    iso: 'fr-FR',
-                },
-                {
-                    code: 'en',
-                    name: 'English',
-                    iso: 'en-US',
-                },
-            ],
-            defaultLocale: 'fr',
+        [
+            'nuxt-i18n',
+            {
+                // Options
+                vueI18nLoader: false,
+                locales: [
+                    {
+                        code: 'fr',
+                        name: 'Français',
+                        iso: 'fr-FR',
+                    },
+                    {
+                        code: 'en',
+                        name: 'English',
+                        iso: 'en-US',
+                    },
+                ],
+                defaultLocale: 'fr',
 
-            vueI18n: {
-                messages: lang.translations,
+                vueI18n: {
+                    messages: lang.translations,
+                },
             },
-
-        }],
+        ],
     ],
 
+    sentry: {
+        dsn: process.env.SENTRY_DSN,
+        config: {},
+    },
+
     styleResources: {
-        sass: [ '@/assets/scss/settings/*' ],
+        sass: ['@/assets/scss/settings/*'],
     },
 
     svgLoader: {
@@ -121,8 +134,8 @@ module.exports = {
     },
 
     /*
-    ** Build configuration
-    */
+     ** Build configuration
+     */
     build: {
         /*
          ** You can extend webpack config here
@@ -135,9 +148,11 @@ module.exports = {
                     test: /\.(js|vue)$/,
                     loader: 'eslint-loader',
                     exclude: /(node_modules)/,
-                })
+                });
             }
-            const vueRule = config.module.rules.find(rule => rule.test.test('.vue'));
+            const vueRule = config.module.rules.find(rule =>
+                rule.test.test('.vue')
+            );
             vueRule.use = [
                 {
                     loader: vueRule.loader,
@@ -160,4 +175,4 @@ module.exports = {
             delete vueRule.options;
         },
     },
-}
+};
