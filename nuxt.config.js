@@ -57,15 +57,14 @@ module.exports = {
     /*
      ** Global CSS
      */
-    css: [{ src: '@/assets/scss/app.scss', lang: 'scss' }, { src: '@/assets/scss/foundation.scss', lang: 'scss' }],
+    css: [{ src: '@/assets/scss/foundation.scss', lang: 'scss' }, { src: '@/assets/scss/app.scss', lang: 'scss' }],
 
     /*
      ** Plugins to load before mounting the App
      */
-    plugins: [
-        // '@/plugins/slugify.js',
-        // '@/plugins/validator.js',
-    ],
+    plugins: [],
+
+    buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/stylelint-module'],
 
     /*
      ** Nuxt.js modules
@@ -74,8 +73,7 @@ module.exports = {
         '@nuxtjs/dotenv',
         '@nuxtjs/sentry',
         '@nuxtjs/style-resources',
-        'nuxt-svg-loader',
-        ['@nuxtjs/moment', ['fr']],
+        // ['@nuxtjs/moment', ['fr']],
         [
             'nuxt-i18n',
             {
@@ -112,10 +110,12 @@ module.exports = {
         scss: ['@/assets/scss/settings/*'],
     },
 
-    svgLoader: {
-        svgoConfig: {
-            svgo,
-        },
+    eslint: {
+        fix: true,
+    },
+
+    stylelint: {
+        fix: true,
     },
 
     /*
@@ -126,15 +126,6 @@ module.exports = {
          ** You can extend webpack config here
          */
         extend(config, ctx) {
-            // Run ESLint on save
-            if (ctx.isDev && ctx.isClient) {
-                config.module.rules.push({
-                    enforce: 'pre',
-                    test: /\.(js|vue)$/,
-                    loader: 'eslint-loader',
-                    exclude: /(node_modules)/,
-                });
-            }
             const vueRule = config.module.rules.find(rule => rule.test.test('.vue'));
             vueRule.use = [
                 {
