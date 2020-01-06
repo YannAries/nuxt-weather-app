@@ -57,48 +57,58 @@ module.exports = {
     /*
      ** Global CSS
      */
-    css: [{ src: '@/assets/scss/foundation.scss', lang: 'scss' }, { src: '@/assets/scss/app.scss', lang: 'scss' }],
+    css: [
+        { src: '@/assets/scss/foundation.scss', lang: 'scss' },
+        { src: '@/assets/scss/app.scss', lang: 'scss' },
+    ],
 
     /*
      ** Plugins to load before mounting the App
      */
     plugins: [],
 
-    buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/stylelint-module'],
+    /*
+     ** Nuxt.js build modules
+     */
+    // prettier-ignore
+    buildModules: [
+        '@nuxtjs/eslint-module',
+        '@nuxtjs/stylelint-module',
+        '@nuxtjs/moment',
+    ],
 
     /*
      ** Nuxt.js modules
      */
+    // prettier-ignore
     modules: [
         '@nuxtjs/dotenv',
         '@nuxtjs/sentry',
         '@nuxtjs/style-resources',
-        // ['@nuxtjs/moment', ['fr']],
-        [
-            'nuxt-i18n',
-            {
-                // Options
-                vueI18nLoader: false,
-                locales: [
-                    {
-                        code: 'fr',
-                        name: 'Français',
-                        iso: 'fr-FR',
-                    },
-                    {
-                        code: 'en',
-                        name: 'English',
-                        iso: 'en-US',
-                    },
-                ],
-                defaultLocale: 'fr',
+        'nuxt-i18n',
+    ],
 
-                vueI18n: {
-                    messages: lang.translations,
-                },
+    i18n: {
+        // Options
+        vueI18nLoader: false,
+        locales: [
+            {
+                code: 'fr',
+                name: 'Français',
+                iso: 'fr-FR',
+            },
+            {
+                code: 'en',
+                name: 'English',
+                iso: 'en-US',
             },
         ],
-    ],
+        defaultLocale: 'fr',
+
+        vueI18n: {
+            messages: lang.translations,
+        },
+    },
 
     sentry: {
         initialize: process.env.NODE_ENV !== 'development',
@@ -108,6 +118,11 @@ module.exports = {
 
     styleResources: {
         scss: ['@/assets/scss/settings/*'],
+    },
+
+    moment: {
+        locales: ['fr'],
+        defaultLocale: 'fr',
     },
 
     eslint: {
