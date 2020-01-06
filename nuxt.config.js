@@ -141,27 +141,19 @@ module.exports = {
          ** You can extend webpack config here
          */
         extend(config, ctx) {
-            const vueRule = config.module.rules.find(rule => rule.test.test('.vue'));
-            vueRule.use = [
-                {
-                    loader: vueRule.loader,
-                    options: vueRule.options,
+            config.module.rules.push({
+                test: /\.vue$/,
+                loader: 'vue-svg-inline-loader',
+                options: {
+                    inlineKeyword: 'inline',
+                    inlineStrict: true,
+                    spriteKeyword: 'sprite',
+                    spriteStrict: false,
+                    removeAttributes: ['alt', 'src'],
+                    xhtml: false,
+                    svgo,
                 },
-                {
-                    loader: 'vue-svg-inline-loader',
-                    options: {
-                        inlineKeyword: 'inline',
-                        inlineStrict: true,
-                        spriteKeyword: 'sprite',
-                        spriteStrict: false,
-                        removeAttributes: ['alt', 'src'],
-                        xhtml: false,
-                        svgo,
-                    },
-                },
-            ];
-            delete vueRule.loader;
-            delete vueRule.options;
+            });
         },
     },
 };
