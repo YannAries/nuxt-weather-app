@@ -21,7 +21,10 @@ Ce projet gère ses dépendances avec [`yarn`](https://yarnpkg.com/)
 
 #### Mode développement
 
+En premier lieu, copier le fichier `.env.exemple` en `.env` et ajuster les variables au besoin.
+
 ```sh
+cp .env.exemple .env
 # install dependencies
 yarn
 # serve with hot-reload
