@@ -1,16 +1,15 @@
 # Nuxt Starter
 
-##### Documentation
+## Documentation
 
 - [Vue](https://vuejs.org/)
 - [VueX](https://vuex.vuejs.org/)
 - [Nuxt](https://nuxtjs.org/)
 
-##### Modules
+## Modules
 
 - [axios-module](https://axios.nuxtjs.org/)
 - [router-module](https://github.com/nuxt-community/router-module)
-- [dotenv-module](https://github.com/nuxt-community/dotenv-module)
 - [nuxt-i18n](https://github.com/nuxt-community/nuxt-i18n)
 - [cookie-universal-nuxt](https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt#readme)
 - [vue-svg-inline-loader](https://github.com/oliverfindl/vue-svg-inline-loader#readme)
@@ -19,9 +18,10 @@
 
 Ce projet gère ses dépendances avec [`yarn`](https://yarnpkg.com/)
 
-#### Mode développement
+### Mode développement
 
-En premier lieu, copier le fichier `.env.exemple` en `.env` et ajuster les variables au besoin.
+En premier lieu, copier le fichier `.env.exemple` en `.env` et ajuster les variables au besoin. 
+Voir: <https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config>
 
 ```sh
 cp .env.exemple .env
@@ -31,7 +31,7 @@ yarn
 yarn dev
 ```
 
-#### Mode production
+### Mode production
 
 ```sh
 # install dependencies
@@ -42,7 +42,7 @@ yarn build
 yarn start
 ```
 
-#### Lint
+### Lint
 
 **Note:** Éxécuter automatiquement en mode dev
 
@@ -53,58 +53,58 @@ yarn lint:scss
 
 ## Arborescence
 
-#### Répertoires racine
+### Répertoires racine
 
-##### deploy
+#### deploy
 
 Le répertoire `deploy` contient les fichiers de configuration pour `deployer`, l'outil de déploiment.
 
-##### env
+#### env
 
 Le répertoire `env` contient les fichiers de configuration et les commandes personnalisée de `Kubéo`.
 
-##### src
+#### src
 
 Le répertoire `src` contient les fichiers source de l'application Nuxt.
 
-##### dist
+#### dist
 
 Le répertoire `dist` contient les fichiers compilé pour la distribution. Ce répertoire ne devrait pas être dans le Git.
 
-#### Répertoire src
+### Répertoire src
 
-##### assets
+#### assets
 
 Le répertoire `assets` contient vos ressources qui seront compilées et bundler par Webpack tels que les fichiers SASS global et les SVG.
 
-##### components
+#### components
 
 Le répertoire `components` contient vos composants Vue.js. Vous ne pouvez pas utiliser les méthodes `asyncData` ou `fetch` sur ces composants.
 
-##### i18n
+#### i18n
 
 Le répertoire `i18n` contient les fichiers de traductions global au format JSON. Vous pouvez aussi traduire directement dans les composants.
 
-##### layout
+#### layout
 
 Le répertoire `layouts` contient les mises en page de votre application. Les mises en page sont utilisées pour changer l'aspect de votre page.
 
-##### middleware
+#### middleware
 
 Le répertoire `middleware` contient vos middlewares. Un middleware vous permet de définir une fonction qui sera exécutée avant de faire le rendu d'une mise en page ou d'un groupe de mises en page.
 
-##### pages
+#### pages
 
 Le répertoire `pages` contient vos vues et routes de l'application.
 
-##### plugins
+#### plugins
 
 Le répertoire `plugins` contient les plugins JavaScript que vous désirez exécuter avant d'instancier l'application. C'est le bon endroit pour enregistrer des composants globaux.
 
-##### static
+#### static
 
 Le répertoire `static` est directement servi par le serveur ([/static/robots.txt]() est accessible à l'adresse http://localhost:3000/robots.txt).
 
-##### store
+#### store
 
 Le répertoire `store` contient vos fichiers de store Vuex. Chaque fichier représente un module de store ou un dossier représente un modules découper en fichiers (`state.js`, `getters.js`, `mutation.js`, `actions.js`)
