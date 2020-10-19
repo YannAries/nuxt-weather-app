@@ -81,7 +81,7 @@ export default {
 }
 h1,
 h2 {
-    font-weight: normal;
+    font-weight: 400;
 }
 ul {
     padding: 0;
@@ -96,12 +96,11 @@ a {
 }
 .button {
     display: block;
-    background-color: #42b983;
-    color: white;
-    margin: 30px auto;
     max-width: 150px;
+    margin: 30px auto;
+    color: white;
+    background-color: #42b983;
 }
-
 .lang {
     position: fixed;
     top: 0px;

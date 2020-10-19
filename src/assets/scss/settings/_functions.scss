@@ -1,7 +1,7 @@
 // Remove-px
 @function remove-px($target) {
     @if not unitless($target) {
-        @return $target / 1px ;
+        @return $target / 1px;
     } @else {
         @return $target;
     }
