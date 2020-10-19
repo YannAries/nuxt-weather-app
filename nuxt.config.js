@@ -69,7 +69,6 @@ module.exports = {
     /*
      ** Nuxt.js build modules
      */
-    // prettier-ignore
     buildModules: [
         '@nuxtjs/eslint-module',
         '@nuxtjs/stylelint-module',
@@ -79,7 +78,6 @@ module.exports = {
     /*
      ** Nuxt.js modules
      */
-    // prettier-ignore
     modules: [
         '@nuxtjs/sentry',
         '@nuxtjs/style-resources',
