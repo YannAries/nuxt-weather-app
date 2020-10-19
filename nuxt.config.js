@@ -1,6 +1,5 @@
 const pkg = require('./package.json');
 const lang = require('./src/i18n/translations.js');
-require('dotenv').config();
 
 const svgo = {
     plugins: [
@@ -82,7 +81,6 @@ module.exports = {
      */
     // prettier-ignore
     modules: [
-        '@nuxtjs/dotenv',
         '@nuxtjs/sentry',
         '@nuxtjs/style-resources',
         'nuxt-i18n',
@@ -144,7 +142,7 @@ module.exports = {
             config.module.rules.push({
                 test: /\.vue$/,
                 loader: 'vue-svg-inline-loader',
-                options: {
+                options: { 
                     inlineKeyword: 'inline',
                     inlineStrict: true,
                     spriteKeyword: 'sprite',
