@@ -57,8 +57,8 @@ module.exports = {
      ** Global CSS
      */
     css: [
-        { src: '~/assets/scss/foundation.scss', lang: 'scss' },
-        { src: '~/assets/scss/app.scss', lang: 'scss' },
+        { src: '@/assets/scss/foundation.scss', lang: 'scss' },
+        { src: '@/assets/scss/app.scss', lang: 'scss' },
     ],
 
     /*
@@ -113,7 +113,7 @@ module.exports = {
     },
 
     styleResources: {
-        scss: ['~/assets/scss/settings/*'],
+        scss: ['@/assets/scss/settings/*'],
     },
 
     moment: {

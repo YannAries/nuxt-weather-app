@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import VueLogo from "~/components/VueLogo"
+import VueLogo from "@/components/VueLogo"
 
 export default {
     components: {
