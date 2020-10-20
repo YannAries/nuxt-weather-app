@@ -140,7 +140,7 @@ module.exports = {
             config.module.rules.push({
                 test: /\.vue$/,
                 loader: 'vue-svg-inline-loader',
-                options: { 
+                options: {
                     inlineKeyword: 'inline',
                     inlineStrict: true,
                     spriteKeyword: 'sprite',
