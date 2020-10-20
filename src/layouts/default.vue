@@ -1,19 +1,19 @@
 <template>
     <div class="layout">
-        <Header />
+        <app-header />
         <nuxt />
-        <Footer />
+        <app-footer />
     </div>
 </template>
 
 <script>
-import Header from "~/components/Header"
-import Footer from "~/components/Footer"
+import AppHeader from "~/components/AppHeader"
+import AppFooter from "~/components/AppFooter"
 
 export default {
     components: {
-        Header,
-        Footer,
+        AppHeader,
+        AppFooter,
     }
 }
 </script>

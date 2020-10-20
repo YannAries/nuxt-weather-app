@@ -9,7 +9,7 @@
             {{ locale.name }}
         </nuxt-link>
 
-        <img src="@/assets/img/logo.png" />
+        <vue-logo/>
         <h1>{{ msg }}</h1>
 
         <h2>{{ $t('home.essential-link') }}</h2>
@@ -55,7 +55,12 @@
 </template>
 
 <script>
+import VueLogo from "~/components/VueLogo"
+
 export default {
+    components: {
+        VueLogo,
+    },
     data() {
         return {
             msg: this.$t('home.welcome'),
