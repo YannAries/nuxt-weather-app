@@ -13,6 +13,10 @@ module.exports = {
             'dollar-variables',
             {
                 type: 'at-rule',
+                name: 'extend',
+            },
+            {
+                type: 'at-rule',
                 name: 'include',
                 parameter: 'clearfix',
             },
@@ -28,18 +32,9 @@ module.exports = {
             },
             'declarations',
             {
-                type: 'rule',
-                selector: /^&:\w+$/,
-            },
-            {
                 type: 'at-rule',
                 name: 'include',
                 parameter: 'colorize',
-            },
-            'rules',
-            {
-                type: 'at-rule',
-                hasBlock: true,
             },
             {
                 type: 'at-rule',
@@ -53,6 +48,7 @@ module.exports = {
                 parameter: 'respond-to',
                 hasBlock: true,
             },
+            'rules',
         ],
         'order/properties-order': [
             'content',

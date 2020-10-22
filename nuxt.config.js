@@ -1,6 +1,5 @@
 const pkg = require('./package.json');
 const lang = require('./src/i18n/translations.js');
-require('dotenv').config();
 
 const svgo = {
     plugins: [
@@ -70,7 +69,6 @@ module.exports = {
     /*
      ** Nuxt.js build modules
      */
-    // prettier-ignore
     buildModules: [
         '@nuxtjs/eslint-module',
         '@nuxtjs/stylelint-module',
@@ -80,9 +78,7 @@ module.exports = {
     /*
      ** Nuxt.js modules
      */
-    // prettier-ignore
     modules: [
-        '@nuxtjs/dotenv',
         '@nuxtjs/sentry',
         '@nuxtjs/style-resources',
         'nuxt-i18n',
