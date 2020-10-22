@@ -26,7 +26,7 @@ export default {
         };
     },
     created() {
-        this.$router.options.routes.forEach(route => {
+        this.$router.options.routes.forEach((route) => {
             if (route.path === this.$nuxt.$route.path) return;
             this.items.push({
                 name: route.name,

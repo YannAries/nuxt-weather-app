@@ -9,7 +9,7 @@
             {{ locale.name }}
         </nuxt-link>
 
-        <vue-logo/>
+        <vue-logo />
         <h1>{{ msg }}</h1>
 
         <h2>{{ $t('home.essential-link') }}</h2>
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import VueLogo from "@/components/VueLogo"
+import VueLogo from '@/components/VueLogo';
 
 export default {
     components: {
@@ -68,7 +68,7 @@ export default {
     },
     computed: {
         availableLocales() {
-            return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
+            return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale);
         },
     },
 };

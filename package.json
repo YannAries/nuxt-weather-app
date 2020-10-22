@@ -37,6 +37,7 @@
     "dependencies": {
         "@nuxtjs/moment": "^1.6.1",
         "@nuxtjs/sentry": "^3.0.0",
+        "eslint-loader": "^4.0.2",
         "foundation-sites": "^6.6.3",
         "nuxt": "^2.14.7",
         "nuxt-i18n": "^6.15.3"
