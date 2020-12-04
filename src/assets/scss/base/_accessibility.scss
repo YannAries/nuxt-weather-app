@@ -5,7 +5,7 @@
 *:focus {
     outline: none;
 }
-[data-state='keydown'] {
+[data-whatintent='keyboard'] {
     *:focus {
         box-shadow: 0 0 0 1px $color-white, 0 0 0 3px $color-black, 0 0 0 4px $color-white !important;
     }

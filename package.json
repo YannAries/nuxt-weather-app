@@ -39,7 +39,8 @@
         "@nuxtjs/sentry": "^4.5.0",
         "foundation-sites": "^6.6.3",
         "nuxt": "^2.14.9",
-        "nuxt-i18n": "^6.15.4"
+        "nuxt-i18n": "^6.15.4",
+        "what-input": "^5.2.10"
     },
     "devDependencies": {
         "@nuxtjs/eslint-config": "^5.0.0",
