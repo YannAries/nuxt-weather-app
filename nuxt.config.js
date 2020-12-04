@@ -24,8 +24,6 @@ module.exports = {
         host: process.env.HOST,
     },
 
-    mode: 'universal',
-
     /*
      ** Headers of the page
      */
