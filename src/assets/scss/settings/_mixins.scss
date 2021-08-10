@@ -1,17 +1,19 @@
 //  -----------------------------
 //  Mixins
 //  -----------------------------
+// stylelint-disable declaration-block-no-duplicate-properties
+
 
 // Clearfix
 @mixin clearfix {
-    &:before,
-    &:after {
-        content: "";
-        display: table;
-        line-height: 0;
-    }
     &:after {
         clear: both;
+    }
+    &:before,
+    &:after {
+        content: '';
+        display: table;
+        line-height: 0;
     }
 }
 

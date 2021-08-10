@@ -9,7 +9,7 @@
             {{ locale.name }}
         </nuxt-link>
 
-        <img src="@/assets/img/logo.png" />
+        <vue-logo />
         <h1>{{ msg }}</h1>
 
         <h2>{{ $t('home.essential-link') }}</h2>
@@ -50,12 +50,17 @@
 
         <!-- router-link Nuxt style with (translation -> localPath) -->
         <!-- Check: https://nuxt-community.github.io/nuxt-i18n/basic-usage.html#nuxt-link -->
-        <nuxt-link :to="localePath('routes')" class="button primary">{{ $t('menu.routes') }}</nuxt-link>
+        <nuxt-link :to="localePath('routes')" class="button primary">{{ $t('app.routes') }}</nuxt-link>
     </div>
 </template>
 
 <script>
+import VueLogo from '@/components/VueLogo';
+
 export default {
+    components: {
+        VueLogo,
+    },
     data() {
         return {
             msg: this.$t('home.welcome'),
@@ -63,7 +68,7 @@ export default {
     },
     computed: {
         availableLocales() {
-            return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
+            return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale);
         },
     },
 };
@@ -81,7 +86,7 @@ export default {
 }
 h1,
 h2 {
-    font-weight: normal;
+    font-weight: 400;
 }
 ul {
     padding: 0;
@@ -96,12 +101,11 @@ a {
 }
 .button {
     display: block;
-    background-color: #42b983;
-    color: white;
-    margin: 30px auto;
     max-width: 150px;
+    margin: 30px auto;
+    color: white;
+    background-color: #42b983;
 }
-
 .lang {
     position: fixed;
     top: 0px;

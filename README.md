@@ -1,129 +1,95 @@
-# Nuxt starter
+# Nuxt Starter
 
-You have to know these following documentations if you never read it:
+## Documentation
 
-- [Nuxt/Vuejs](https://github.com/nuxt/nuxt.js)
-- [nuxt-i18n](https://nuxt-community.github.io/nuxt-i18n/basic-usage.html) will give you some info about translation and **ROUTING** translation
+- [Vue](https://vuejs.org/)
+- [Nuxt](https://nuxtjs.org/)
 
-## Build Setup
+## Utilisation
 
-``` bash
+Ce projet gère ses dépendances avec [`yarn`](https://yarnpkg.com/)
+
+### Mode développement
+
+```sh
+# install and run
+yarn install && yarn dev
+```
+
+### Mode production
+
+```sh
 # install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn run dev
-
-# build for dev and launch server (Most of the case you should use yarn run dev)
-$ yarn run build
-$ yarn start
-
-# build for staging and launch server (For staging and use env-staging.js)
-$ yarn run build-staging
-$ yarn start-staging
-
-# build for production and launch server (For production and use env-prod.js)
-$ yarn run build-production
-$ yarn start
-
-# generate static project
-$ yarn run generate
+yarn install
+# build
+yarn build
+#serve
+yarn start
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+### Lint
 
-## Translation
+**Note:** Éxécuter automatiquement en mode dev
 
-- All translation are in the folder `i18n`
-- After a modification in the translation file you have to restart with a new `yarn run dev`
-- Don't hesitate to check documentation about [nuxt-i18n](https://nuxt-community.github.io/nuxt-i18n/basic-usage.html). It explains how to use it.
-
-You can use translation in template like that: `$t('menu.lang')`
-
-### Routing with i18n
-
-```javascript
-// Page example
-// pages/about.vue
-
-export default {
-  nuxtI18n: {
-    paths: {
-      en: '/about-us', // -> accessible at /about-us (no prefix since it's the default locale)
-      fr: '/a-propos', // -> accessible at /fr/a-propos
-      es: '/sobre'     // -> accessible at /es/sobre
-    }
-  }
-}
+```sh
+yarn lint:js
+yarn lint:scss
 ```
 
-## Plugins
+## Arborescence
 
-You will find plugin in the following path: `./plugins/`
+### Répertoires racine
 
-### Slugify
+#### deploy
 
-`this.$slugify({{String to slugify}})`
+Le répertoire `deploy` contient les fichiers de configuration pour `deployer`, l'outil de déploiment.
 
-That convert any string to an sanitize url.
+#### env
 
-eg: `A title & any text` -> `a-title-and-any-text`
+Le répertoire `env` contient les fichiers de configuration et les commandes personnalisée de `Kubéo`.
 
-### Validator
+#### src
 
-`this.$validator.{{MyValidatorRule}}`
+Le répertoire `src` contient les fichiers source de l'application Nuxt.
 
-This is the Validator yarn package.
-Take a look to the node modules section to learn more.
+#### dist
 
-### LocalStorage
+Le répertoire `dist` contient les fichiers compilé pour la distribution. Ce répertoire ne devrait pas être dans le Git.
 
-This plugin is about the configuration of the store persistance
-I suggest you to see this: <https://www.nodejs.com/package/vuex-persistedstate>
+### Répertoire src
 
-## Node modules
+#### assets
 
-List of added node modules
+Le répertoire `assets` contient vos ressources qui seront compilées et bundler par Webpack tels que les fichiers SASS global et les SVG.
 
-### Validator
+#### components
 
-This is use to validate fields input.
-E.G:
+Le répertoire `components` contient vos composants Vue.js. Vous ne pouvez pas utiliser les méthodes `asyncData` ou `fetch` sur ces composants.
 
-- Postal code
-- credit cart
-- isMobilePhone
+#### i18n
 
-<https://www.nodejs.com/package/validator>
+Le répertoire `i18n` contient les fichiers de traductions global au format JSON. Vous pouvez aussi traduire directement dans les composants.
 
-### vuex-persistedstate
+#### layout
 
-That will persist the store.
-<https://www.nodejs.com/package/vuex-persistedstate>
+Le répertoire `layouts` contient les mises en page de votre application. Les mises en page sont utilisées pour changer l'aspect de votre page.
 
-### Moment
+#### middleware
 
-This is just really usefull if you have to work with date or time
-<https://momentjs.com/>
+Le répertoire `middleware` contient vos middlewares. Un middleware vous permet de définir une fonction qui sera exécutée avant de faire le rendu d'une mise en page ou d'un groupe de mises en page.
 
-## Config
+#### pages
 
-You have to create the .env file (You can copy env-example as example) and replace it by your personal config for devellopement.
+Le répertoire `pages` contient vos vues et routes de l'application.
 
-- env.js = Your local dev
-- env-staging.js = The staging config
-- env-prod.js = The prod config
+#### plugins
 
-In the package.json you will see these commands
+Le répertoire `plugins` contient les plugins JavaScript que vous désirez exécuter avant d'instancier l'application. C'est le bon endroit pour enregistrer des composants globaux.
 
-```javascript
-"dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
-    "build": "nuxt build",
-    "build-production": "cross-env NODE_ENV=production nuxt build",
-    "build-staging": "cross-env NODE_ENV=staging nuxt build",
-    "start-staging": "cross-env NODE_ENV=staging node server/index.js",
-    "start": "cross-env NODE_ENV=production node server/index.js",
-```
+#### static
 
-As you see the `NODE_ENV=staging` trigger witch environnement will be use.
-The logic to determine that is in the `index.js`
+Le répertoire `static` est directement servi par le serveur ([/static/robots.txt]() est accessible à l'adresse http://localhost:3000/robots.txt).
+
+#### store
+
+Le répertoire `store` contient vos fichiers de store Vuex. Chaque fichier représente un module de store ou un dossier représente un modules découper en fichiers (`state.js`, `getters.js`, `mutation.js`, `actions.js`)
