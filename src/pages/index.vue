@@ -50,7 +50,7 @@
 
         <!-- router-link Nuxt style with (translation -> localPath) -->
         <!-- Check: https://nuxt-community.github.io/nuxt-i18n/basic-usage.html#nuxt-link -->
-        <nuxt-link :to="localePath('routes')" class="button primary">{{ $t('menu.routes') }}</nuxt-link>
+        <nuxt-link :to="localePath('routes')" class="button primary">{{ $t('app.routes') }}</nuxt-link>
     </div>
 </template>
 

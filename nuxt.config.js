@@ -1,4 +1,3 @@
-const pkg = require('./package.json');
 const lang = require('./src/i18n/translations.js');
 
 const svgo = {
@@ -20,36 +19,42 @@ module.exports = {
     srcDir: 'src/',
 
     server: {
-        port: process.env.PORT,
         host: process.env.HOST,
+        port: process.env.PORT,
     },
+
+    publicRuntimeConfig: {},
+
+    privateRuntimeConfig: {},
 
     /*
      ** Headers of the page
      */
-    head: {
-        title: pkg.name,
-        meta: [
-            { charset: 'utf-8' },
-            {
-                name: 'viewport',
-                content: 'width=device-width, initial-scale=1',
-            },
-            { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
-            { hid: 'format-detection', name: 'format-detection', content: 'telephone=no' },
-            {
-                hid: 'description',
-                name: 'description',
-                content: pkg.description,
-            },
-        ],
-        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+     head({ $i18n }) {
+         return {
+            title: 'Nuxt Starter Project',
+            meta: [
+                { charset: 'utf-8' },
+                {
+                    name: 'viewport',
+                    content: 'width=device-width, initial-scale=1',
+                },
+                { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+                { hid: 'format-detection', name: 'format-detection', content: 'telephone=no' },
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                },
+            ],
+            link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+         }
     },
 
     /*
      ** Customize the progress-bar color
      */
-    loading: { color: '#fff' },
+    loading: { height: '5px', color: '#0000ff' },
 
     /*
      ** Global CSS
@@ -81,22 +86,22 @@ module.exports = {
     modules: [
         '@nuxtjs/sentry',
         '@nuxtjs/style-resources',
-        'nuxt-i18n',
+        '@nuxtjs/i18n',
     ],
 
     i18n: {
         // Options
-        vueI18nLoader: false,
+        vueI18nLoader: true,
         locales: [
             {
                 code: 'fr',
                 name: 'Français',
-                iso: 'fr-FR',
+                iso: 'fr-CA',
             },
             {
                 code: 'en',
                 name: 'English',
-                iso: 'en-US',
+                iso: 'en-CA',
             },
         ],
         defaultLocale: 'fr',
@@ -145,7 +150,7 @@ module.exports = {
                     inlineStrict: true,
                     spriteKeyword: 'sprite',
                     spriteStrict: false,
-                    removeAttributes: ['alt', 'src'],
+                    removeAttributes: ['alt', 'src', 'inline'],
                     xhtml: false,
                     svgo,
                 },

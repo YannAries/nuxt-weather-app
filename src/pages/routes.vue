@@ -1,6 +1,6 @@
 <template>
     <div class="routes">
-        <h1>{{ $t('menu.routes') }}</h1>
+        <h1>{{ $t('app.routes') }}</h1>
 
         <template v-for="item in items">
             <!-- VueJs routing style -->

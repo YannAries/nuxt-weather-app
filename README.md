@@ -3,16 +3,7 @@
 ## Documentation
 
 - [Vue](https://vuejs.org/)
-- [VueX](https://vuex.vuejs.org/)
 - [Nuxt](https://nuxtjs.org/)
-
-## Modules
-
-- [axios-module](https://axios.nuxtjs.org/)
-- [router-module](https://github.com/nuxt-community/router-module)
-- [nuxt-i18n](https://github.com/nuxt-community/nuxt-i18n)
-- [cookie-universal-nuxt](https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt#readme)
-- [vue-svg-inline-loader](https://github.com/oliverfindl/vue-svg-inline-loader#readme)
 
 ## Utilisation
 
@@ -20,22 +11,16 @@ Ce projet gère ses dépendances avec [`yarn`](https://yarnpkg.com/)
 
 ### Mode développement
 
-En premier lieu, copier le fichier `.env.exemple` en `.env` et ajuster les variables au besoin. 
-Voir: <https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config>
-
 ```sh
-cp .env.exemple .env
-# install dependencies
-yarn
-# serve with hot-reload
-yarn dev
+# install and run
+yarn install && yarn dev
 ```
 
 ### Mode production
 
 ```sh
 # install dependencies
-yarn
+yarn install
 # build
 yarn build
 #serve

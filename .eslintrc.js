@@ -7,16 +7,21 @@ module.exports = {
     parserOptions: {
         parser: 'babel-eslint',
     },
-    extends: ['@nuxtjs', 'plugin:nuxt/recommended', 'plugin:prettier/recommended', 'prettier', 'prettier/vue'],
-    plugins: ['prettier', 'sort-imports-es6-autofix'],
+    extends: ['@nuxtjs', 'plugin:nuxt/recommended', 'plugin:prettier/recommended', 'prettier'],
+    plugins: ['prettier', 'sort-imports-es6-autofix', 'no-smart-quotes'],
     // add your custom rules here
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'vue/no-v-html': 'off',
         'nuxt/no-cjs-in-config': 'off',
+        'vue/html-button-has-type': 'error',
         'object-shorthand': ['error', 'always'],
+        'no-unused-vars': 'warn',
+        'vue/no-unused-components': 'warn',
         'import/newline-after-import': 'error',
+        'vue/padding-line-between-blocks': ['error', 'always'],
+        'no-smart-quotes/no-smart-quotes': 'error',
         'sort-imports-es6-autofix/sort-imports-es6': [
             'error',
             {
