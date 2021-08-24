@@ -9,7 +9,7 @@ const svgo = {
         { removeDimensions: true },
         {
             removeAttrs: {
-                attrs: ['fill', 'opacity'],
+                attrs: ['fill', 'opacity', 'stroke'],
             },
         },
     ],
@@ -87,7 +87,14 @@ module.exports = {
         '@nuxtjs/sentry',
         '@nuxtjs/style-resources',
         '@nuxtjs/i18n',
+        '@nuxtjs/svg',
     ],
+
+    svg: {
+        vueSvgLoader: {
+            svgo,
+        },
+    },
 
     i18n: {
         // Options

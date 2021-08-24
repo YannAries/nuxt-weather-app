@@ -1,6 +1,6 @@
 {
     "name": "nuxt-starter",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "description": "Starter project for Nuxt projects at Libeo",
     "author": {
         "name": "Libéo",
@@ -35,6 +35,7 @@
         "@nuxtjs/i18n": "^7.0.1",
         "@nuxtjs/moment": "^1.6.1",
         "@nuxtjs/sentry": "<5.0.0",
+        "@nuxtjs/svg": "^0.2.0",
         "foundation-sites": "^6.6.3",
         "nuxt": "^2.15.7",
         "what-input": "^5.2.10"
@@ -51,7 +52,6 @@
         "eslint-plugin-no-smart-quotes": "^1.2.2",
         "eslint-plugin-nuxt": "^2.0.0",
         "eslint-plugin-prettier": "^3.4.0",
-        "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
         "fibers": "^5.0.0",
         "prettier": "^2.3.2",
         "sass": "<1.33.0",
