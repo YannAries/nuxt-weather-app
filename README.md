@@ -3,6 +3,7 @@
 ## Documentation
 
 - [Vue](https://vuejs.org/)
+- [VueX](https://vuex.vuejs.org/)
 - [Nuxt](https://nuxtjs.org/)
 
 ## Utilisation
@@ -12,8 +13,10 @@ Ce projet gère ses dépendances avec [`yarn`](https://yarnpkg.com/)
 ### Mode développement
 
 ```sh
-# install and run
-yarn install && yarn dev
+# install dependencies
+yarn install
+# serve with hot-reload
+yarn dev
 ```
 
 ### Mode production
@@ -21,9 +24,9 @@ yarn install && yarn dev
 ```sh
 # install dependencies
 yarn install
-# build
+# build optimized bundle
 yarn build
-#serve
+# serve mode production
 yarn start
 ```
 

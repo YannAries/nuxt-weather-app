@@ -8,7 +8,7 @@ module.exports = {
         parser: 'babel-eslint',
     },
     extends: ['@nuxtjs', 'plugin:nuxt/recommended', 'plugin:prettier/recommended', 'prettier'],
-    plugins: ['prettier', 'sort-imports-es6-autofix', 'no-smart-quotes'],
+    plugins: ['prettier', 'no-smart-quotes'],
     // add your custom rules here
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -22,12 +22,16 @@ module.exports = {
         'import/newline-after-import': 'error',
         'vue/padding-line-between-blocks': ['error', 'always'],
         'no-smart-quotes/no-smart-quotes': 'error',
-        'sort-imports-es6-autofix/sort-imports-es6': [
+        'import/order': [
             'error',
             {
-                ignoreCase: true,
-                ignoreMemberSort: false,
-                memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+                pathGroups: [
+                    {
+                        pattern: '@/**',
+                        group: 'internal',
+                    },
+                ],
+                pathGroupsExcludedImportTypes: ['builtin'],
             },
         ],
     },
