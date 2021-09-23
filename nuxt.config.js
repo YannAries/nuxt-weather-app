@@ -156,7 +156,7 @@ module.exports = {
                     inlineKeyword: 'inline',
                     inlineStrict: true,
                     spriteKeyword: 'sprite',
-                    spriteStrict: false,
+                    spriteStrict: true,
                     removeAttributes: ['alt', 'src', 'inline'],
                     xhtml: false,
                     svgo,
