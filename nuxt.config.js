@@ -1,19 +1,5 @@
 const lang = require('./src/i18n/translations.js');
-
-const svgo = {
-    plugins: [
-        { prefixIds: true },
-        { removeTitle: true },
-        { removeDesc: true },
-        { removeViewBox: false },
-        { removeDimensions: true },
-        {
-            removeAttrs: {
-                attrs: ['fill', 'opacity', 'stroke'],
-            },
-        },
-    ],
-};
+const svgo = require('./svgoConfig.js');
 
 module.exports = {
     srcDir: 'src/',
