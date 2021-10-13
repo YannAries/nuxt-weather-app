@@ -12,7 +12,7 @@
         <vue-logo />
         <h1>{{ msg }}</h1>
 
-        <h2>{{ $t('home.essential-link') }}</h2>
+        <h2>{{ $t('app.essential_links') }}</h2>
         <ul>
             <li>
                 <a href="https://vuejs.org" target="_blank">Core Docs</a>
@@ -21,7 +21,7 @@
                 <a href="https://forum.vuejs.org" target="_blank">Forum</a>
             </li>
             <li>
-                <a href="https://chat.vuejs.org" target="_blank">{{ $t('home.ecosystem') }}</a>
+                <a href="https://chat.vuejs.org" target="_blank">{{ $t('app.ecosystem') }}</a>
             </li>
             <li>
                 <a href="https://twitter.com/vuejs" target="_blank">Twitter</a>
@@ -32,7 +32,7 @@
             </li>
         </ul>
 
-        <h2>{{ $t('home.ecosystem') }}</h2>
+        <h2>{{ $t('app.ecosystem') }}</h2>
         <ul>
             <li>
                 <a href="http://router.vuejs.org/" target="_blank">vue-router</a>
@@ -63,7 +63,7 @@ export default {
     },
     data() {
         return {
-            msg: this.$t('home.welcome'),
+            msg: this.$t('app.welcome'),
         };
     },
     computed: {

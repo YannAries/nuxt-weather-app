@@ -1,7 +1,7 @@
-const lang = require('./src/i18n/translations.js');
-const svgo = require('./svgoConfig.js');
+import messages from './src/i18n/translations.js';
+import svgo from './svgoConfig.js';
 
-module.exports = {
+export default {
     srcDir: 'src/',
 
     server: {
@@ -100,7 +100,7 @@ module.exports = {
         defaultLocale: 'fr',
 
         vueI18n: {
-            messages: lang.translations,
+            messages,
         },
     },
 

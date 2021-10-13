@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     plugins: [
         { prefixIds: true },
         { removeTitle: true },

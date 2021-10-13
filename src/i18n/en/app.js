@@ -1,5 +1,6 @@
 module.exports = {
     welcome: 'Welcome to Your Vue.js App',
-    'essential-link': 'Essential Links',
+    essential_links: 'Essential Links',
     ecosystem: 'Ecosystem',
+    routes: 'Routes',
 };
