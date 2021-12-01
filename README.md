@@ -13,6 +13,7 @@ Ce projet gère ses dépendances avec [`yarn`](https://yarnpkg.com/)
 ### Mode développement
 
 ```sh
+cp .env.example .env
 # install dependencies
 yarn install
 # serve with hot-reload
@@ -22,6 +23,7 @@ yarn dev
 ### Mode production
 
 ```sh
+cp .env.example .env
 # install dependencies
 yarn install
 # build optimized bundle
