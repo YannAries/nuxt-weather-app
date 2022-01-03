@@ -1,6 +1,8 @@
 import messages from './src/i18n/translations.js';
 import svgo from './svgoConfig.js';
 
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+
 export default {
     srcDir: 'src/',
 
@@ -9,16 +11,25 @@ export default {
         port: process.env.PORT,
     },
 
-    publicRuntimeConfig: {},
+    publicRuntimeConfig: {
+        axios: {
+            browserBaseURL: process.env.BROWSER_BASE_URL
+        }
+    },
 
-    privateRuntimeConfig: {},
+    privateRuntimeConfig: {
+        axios: {
+            baseURL: process.env.BASE_URL
+        }
+    },
+
 
     /*
      ** Headers of the page
      */
-     head({ $i18n }) {
-         return {
-            title: 'Nuxt Starter Project',
+    head({ $i18n }) {
+        return {
+            title: 'Weather app',
             meta: [
                 { charset: 'utf-8' },
                 {
@@ -29,12 +40,18 @@ export default {
                 { hid: 'format-detection', name: 'format-detection', content: 'telephone=no' },
                 {
                     hid: 'description',
-                    name: 'description',
+                    name: 'Challenge: Create a weather app using an API',
                     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                 },
             ],
-            link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-         }
+            link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+            {
+                rel: 'stylesheet',
+                href:
+                    'https://fonts.googleapis.com/css2?family=Raleway:wght@500;700&display=swap',
+            },
+            ],
+        }
     },
 
     /*
@@ -62,7 +79,7 @@ export default {
      */
     buildModules: [
         '@nuxtjs/eslint-module',
-        '@nuxtjs/stylelint-module',
+        // '@nuxtjs/stylelint-module',
         '@nuxtjs/moment',
     ],
 
@@ -74,7 +91,26 @@ export default {
         '@nuxtjs/style-resources',
         '@nuxtjs/i18n',
         '@nuxtjs/svg',
+        '@nuxtjs/axios',
     ],
+
+    axios: {
+        baseURL: 'http://localhost:4000', // Used as fallback if no runtime config is provided
+        proxy: true, // Can be also an object with default options
+        '/api/': 'https://meta-weather.now.sh/api/', // https://github.com/thebuilder/meta-weather-proxy
+        '/api2/': 'https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/'
+    },
+
+
+    module: {
+        configureWebpack: {
+            plugins: [
+                new StyleLintPlugin({
+                    files: ['src/**/*.{vue,scss}'],
+                }),
+            ],
+        },
+    },
 
     svg: {
         vueSvgLoader: {

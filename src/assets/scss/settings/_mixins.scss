@@ -16,7 +16,6 @@
         line-height: 0;
     }
 }
-
 // Visuallyhidden
 @mixin visuallyhidden($hide: true) {
     @if $hide == true {
@@ -66,7 +65,6 @@
     line-height: remove-px($size) + px;
     line-height: rem($size);
 }
-
 // REM font-size and line-height
 @mixin rem-typo($font, $line: 1.4) {
     font-size: remove-px($font) + px;
