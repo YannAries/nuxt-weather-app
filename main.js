@@ -1,8 +1,6 @@
+//
 import Vue from 'vue';
-import Index from './index.vue';
+import axios from '@nuxtjs/axios';
 
-Vue.config.productionTip = false;
-
-new Vue({
-    render: (h) => h(Index),
-}).$mount('#app');
+axios.defaults.baseURL = 'http://api.openweathermap.org/data/2.5';
+Vue.http = Vue.prototype.$http = axios;

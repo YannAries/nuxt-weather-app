@@ -58,28 +58,28 @@ export default {
     name: 'TodaysHighlights',
     components: {},
 
-    props: {
-        windSpeed: {
-            type: Number,
-            required: true,
-        },
-        windDirection: {
-            type: Number,
-            required: true,
-        },
-        humidity: {
-            type: Number,
-            required: true,
-        },
-        visibility: {
-            type: Number,
-            required: true,
-        },
-        airPressure: {
-            type: Number,
-            required: true,
-        },
-    },
+    // props: {
+    //     windSpeed: {
+    //         type: Number,
+    //         required: true,
+    //     },
+    //     windDirection: {
+    //         type: Number,
+    //         required: true,
+    //     },
+    //     humidity: {
+    //         type: Number,
+    //         required: true,
+    //     },
+    //     visibility: {
+    //         type: Number,
+    //         required: true,
+    //     },
+    //     airPressure: {
+    //         type: Number,
+    //         required: true,
+    //     },
+    // },
     data() {
         return {};
     },

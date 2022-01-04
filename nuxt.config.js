@@ -11,17 +11,17 @@ export default {
         port: process.env.PORT,
     },
 
-    publicRuntimeConfig: {
-        axios: {
-            browserBaseURL: process.env.BROWSER_BASE_URL
-        }
-    },
+    // publicRuntimeConfig: {
+    //     axios: {
+    //         browserBaseURL: process.env.BROWSER_BASE_URL
+    //     }
+    // },
 
-    privateRuntimeConfig: {
-        axios: {
-            baseURL: process.env.BASE_URL
-        }
-    },
+    // privateRuntimeConfig: {
+    //     axios: {
+    //         baseURL: process.env.BASE_URL
+    //     }
+    // },
 
 
     /*
@@ -71,7 +71,9 @@ export default {
      ** Plugins to load before mounting the App
      */
     plugins: [
-        { src: '@/plugins/what-input.js', mode: 'client' }
+        { src: '@/plugins/what-input.js', mode: 'client' },
+        // { src: '@/plugins/axios.js'},
+
     ],
 
     /*
@@ -91,15 +93,10 @@ export default {
         '@nuxtjs/style-resources',
         '@nuxtjs/i18n',
         '@nuxtjs/svg',
-        '@nuxtjs/axios',
     ],
 
-    axios: {
-        baseURL: 'http://localhost:4000', // Used as fallback if no runtime config is provided
-        proxy: true, // Can be also an object with default options
-        '/api/': 'https://meta-weather.now.sh/api/', // https://github.com/thebuilder/meta-weather-proxy
-        '/api2/': 'https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/'
-    },
+    // axios: {
+    // },
 
 
     module: {

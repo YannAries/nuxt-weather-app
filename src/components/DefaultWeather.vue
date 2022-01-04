@@ -43,14 +43,23 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
     name: 'DefaultWeather',
     data() {
-        return {};
+        return {
+            info: [],
+            errored: false,
+        };
     },
     computed: {},
+
+    // async mounted() {
+    //     this.info = await this.$axios.$get(
+    //         'https://www.openweathermap.org/data/2.5/weather?q={quebec}&appid={13e98cc8aba1bfd9310dfab158b20f62}',
+    //         'http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=13e98cc8aba1bfd9310dfab158b20f62}',
+    //     );
+    // },
+
     methods: {
         clickedBtn() {
             if (navigator.geolocation) {
@@ -66,21 +75,6 @@ export default {
             } else {
                 console.log('Your browser does not support geolocalisation!');
             }
-        },
-
-        mounted() {
-            axios
-                .get(
-                    'https://cors.bridged.cc/https://www.metaweather.com/api/location/search/?lattlong=(position.coords.latitude),(position.coords.longitude)',
-                )
-                .then((response) => {
-                    this.info = response.data.bpi;
-                })
-                .catch((error) => {
-                    console.log(error);
-                    this.errored = true;
-                })
-                .finally(() => (this.loading = false));
         },
     },
 };

@@ -2,6 +2,7 @@
     <div id="app">
         <main>
             <default-weather />
+            <test />
             <hidden-search />
             <aside>
                 <weather-details />
@@ -14,12 +15,14 @@
 import DefaultWeather from '@/components/DefaultWeather';
 import HiddenSearch from '@/components/HiddenSearch';
 import WeatherDetails from '@/components/WeatherDetails';
+import Test from '@/components/Test';
 
 export default {
     components: {
         DefaultWeather,
         HiddenSearch,
         WeatherDetails,
+        Test,
     },
     data() {
         return {};
@@ -34,7 +37,7 @@ export default {
 }
 
 #app {
-    // font-family: Raleway, sans-serif;
+    font-family: Raleway, sans-serif;
 }
 
 main {
