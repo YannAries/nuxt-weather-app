@@ -1,11 +1,12 @@
 <template>
     <div class="container">
+        <!-- <pre>{{ weatherData }}</pre> -->
         <div class="temp-unit">
             <button class="active" type="submit">°C</button>
             <button class="" type="submit">°F</button>
         </div>
-        <five-days-forecast />
-        <todays-highlights />
+        <five-days-forecast :weather-data="weatherData" />
+        <todays-highlights :weather-data="weatherData" />
         <footer>
             <h5>{{ message }}</h5>
         </footer>
@@ -17,9 +18,16 @@ import FiveDaysForecast from '@/components/FiveDaysForecast';
 import TodaysHighlights from '@/components/TodaysHighlights';
 
 export default {
+    name: 'WeatherDetails',
     components: {
         FiveDaysForecast,
         TodaysHighlights,
+    },
+    props: {
+        weatherData: {
+            type: Object,
+            default: () => {},
+        },
     },
     data() {
         return {
@@ -30,6 +38,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// TODO: remplacer avec foundation
+
 .container {
     width: 80%;
     height: 100%;

@@ -1,11 +1,9 @@
 <template>
     <div id="app">
         <main>
-            <default-weather />
-            <test />
-            <hidden-search />
+            <default-weather :weather-data="data" @get-weather="getWeather" />
             <aside>
-                <weather-details />
+                <weather-details :weather-data="data" />
             </aside>
         </main>
     </div>
@@ -13,24 +11,37 @@
 
 <script>
 import DefaultWeather from '@/components/DefaultWeather';
-import HiddenSearch from '@/components/HiddenSearch';
 import WeatherDetails from '@/components/WeatherDetails';
-import Test from '@/components/Test';
 
 export default {
     components: {
         DefaultWeather,
-        HiddenSearch,
         WeatherDetails,
-        Test,
+    },
+    async asyncData({ $axios }) {
+        const data = await $axios.$get(
+            `https://api.openweathermap.org/data/2.5/weather?q=Quebec,CA&APPID=13e98cc8aba1bfd9310dfab158b20f62&units=metric`,
+        );
+        return { data };
     },
     data() {
         return {};
+    },
+    methods: {
+        async getWeather(city) {
+            const response = await this.$axios.$get(
+                // `https://api.openweathermap.org/data/2.5/weather?q=${city},CA&APPID=13e98cc8aba1bfd9310dfab158b20f62&units=metric`,
+                `https://api.openweathermap.org/data/2.5/weather?q=${city},CA&APPID=13e98cc8aba1bfd9310dfab158b20f62&units=metric`,
+            );
+            this.data = response;
+        },
     },
 };
 </script>
 
 <style lang="scss" scoped>
+// TODO: remplacer avec foundation
+
 * {
     margin: 0;
     padding: 0;

@@ -2,24 +2,26 @@
     <div>
         <h4>Today's Highlights</h4>
         <div class="highlights">
+            <!-- <pre>{{ weatherData }}</pre> -->
             <div>
                 <h5>Wind Status</h5>
                 <p>
-                    <!-- <span>{{ windSpeed }}</span> -->
-                    <span class="unit">mph</span>
+                    <span>{{ weatherData.wind.speed }}<span class="unit">mph</span></span>
                 </p>
                 <div class="wind">
                     <button type="submit">
                         <img src="@/assets/svg/near_me_white_24dp.svg" alt="Near me" />
                     </button>
-                    <!-- <span>{{ windDirection }}</span> -->
+                    <span :style="`transform: rotate(${{ windDirIcon }}deg)`"
+                        ><img src="@/assets/svg/near_me_white_24dp.svg" alt="Near me"
+                    /></span>
+                    <span>{{ windDirStr }}</span>
                 </div>
             </div>
             <div>
                 <h5>Humidity</h5>
                 <p>
-                    <!-- <span>{{ humidity }}</span> -->
-                    <span class="unit">%</span>
+                    <span>{{ weatherData.main.humidity }}<span class="unit">&#37;</span></span>
                 </p>
                 <div class="prog">
                     <div class="indicators">
@@ -28,25 +30,23 @@
                         <span>100</span>
                     </div>
                     <div class="bar">
-                        <div class="percentaage"></div>
+                        <div class="percentage"></div>
                     </div>
                     <div class="unit">
-                        <span>%</span>
+                        <span>&#37;</span>
                     </div>
                 </div>
             </div>
             <div>
                 <h5>Visibility</h5>
                 <p>
-                    <!-- <span>{{ visibility }}</span> -->
-                    <span class="unit">Miles</span>
+                    <span>{{ Math.round(weatherData.visibility) }}<span class="unit">miles</span></span>
                 </p>
             </div>
             <div>
                 <h5>Air Pressure</h5>
                 <p>
-                    <!-- <span>{{ airPressure }}</span> -->
-                    <span class="unit">mb</span>
+                    <span>{{ weatherData.main.pressure }}<span class="unit">mb</span></span>
                 </p>
             </div>
         </div>
@@ -54,39 +54,43 @@
 </template>
 
 <script>
+function windDirection(num) {
+    const val = Math.floor(num / 22.5 + 0.5);
+    const arr = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
+    return arr[val % 16];
+}
+
 export default {
     name: 'TodaysHighlights',
+
     components: {},
 
-    // props: {
-    //     windSpeed: {
-    //         type: Number,
-    //         required: true,
-    //     },
-    //     windDirection: {
-    //         type: Number,
-    //         required: true,
-    //     },
-    //     humidity: {
-    //         type: Number,
-    //         required: true,
-    //     },
-    //     visibility: {
-    //         type: Number,
-    //         required: true,
-    //     },
-    //     airPressure: {
-    //         type: Number,
-    //         required: true,
-    //     },
-    // },
+    props: {
+        weatherData: {
+            type: Object,
+            default: () => {},
+        },
+    },
+
     data() {
-        return {};
+        return { city: '' };
+    },
+
+    computed: {
+        windDirIcon() {
+            return this.weatherData.wind.deg + 90;
+        },
+        // Points cardinaux
+        windDirStr() {
+            return windDirection(this.weatherData.wind.deg);
+        },
     },
 };
 </script>
 
 <style lang="scss" scoped>
+// TODO: remplacer avec foundation
+
 h4 {
     // font-size: 18px;
     color: #e7e7eb;
@@ -94,12 +98,6 @@ h4 {
     margin-top: 12px;
     font-weight: 700;
 }
-
-// @media (min-height: 768px) {
-//     h4 {
-//         font-size: 20px;
-//     }
-// }
 
 .highlights {
     display: grid;

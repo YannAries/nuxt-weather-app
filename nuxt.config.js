@@ -11,6 +11,10 @@ export default {
         port: process.env.PORT,
     },
 
+    // env: {
+    //     OPENWEATHERMAP_API_KEY: process.env.OPENWEATHERMAP_API_KEY
+    // },
+
     // publicRuntimeConfig: {
     //     axios: {
     //         browserBaseURL: process.env.BROWSER_BASE_URL
@@ -93,10 +97,11 @@ export default {
         '@nuxtjs/style-resources',
         '@nuxtjs/i18n',
         '@nuxtjs/svg',
+        '@nuxtjs/axios',
     ],
 
-    // axios: {
-    // },
+    axios: {
+    },
 
 
     module: {
