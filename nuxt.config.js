@@ -21,11 +21,11 @@ export default {
     //     }
     // },
 
-    // privateRuntimeConfig: {
-    //     axios: {
-    //         baseURL: process.env.BASE_URL
-    //     }
-    // },
+    privateRuntimeConfig: {
+        axios: {
+            nuxtAppWeatherApiKey: process.env.NUXT_APP_WEATHER_API_KEY
+        }
+    },
 
 
     /*
@@ -61,7 +61,7 @@ export default {
     /*
      ** Customize the progress-bar color
      */
-    loading: { height: '5px', color: '#0000ff' },
+    // loading: { height: '5px', color: '#0000ff' },
 
     /*
      ** Global CSS
@@ -76,7 +76,7 @@ export default {
      */
     plugins: [
         { src: '@/plugins/what-input.js', mode: 'client' },
-        // { src: '@/plugins/axios.js'},
+        { src: '@/plugins/filters.js' },
 
     ],
 
@@ -153,8 +153,8 @@ export default {
     },
 
     moment: {
-        locales: ['fr'],
-        defaultLocale: 'fr',
+        locales: ['en-ca'],
+        defaultLocale: 'en-ca',
     },
 
     eslint: {

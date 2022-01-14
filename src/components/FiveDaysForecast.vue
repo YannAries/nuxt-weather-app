@@ -1,62 +1,17 @@
 <template>
     <div class="weather-forecast">
-        <!-- <pre>{{ weatherData }}</pre> -->
-        <div class="weather">
-            <div class="weather-card">
-                <h5>Tomorrow</h5>
-                <img
-                    :src="'https://openweathermap.org/img/w/' + weatherData.weather[0].icon + '.png'"
-                    alt="Heavy Cloud"
-                />
-                <span> {{ weatherData.main.temp_max }} &deg;C </span>
-                <span> {{ weatherData.main.temp_min }} &deg;C </span>
+        <div v-for="day in weatherData.daily.slice(2, 7)" :key="day.dt" class="weather-card">
+            <h5>{{ $moment.unix(day.dt).format('ddd, DD MMM') }}</h5>
+            <img :src="'https://openweathermap.org/img/w/' + day.weather[0].icon + '.png'" alt="weather" />
+            <div class="inline-flex">
+                <span> {{ day.temp.max | tempConvert | mathRound }}</span>
+                <span> {{ day.temp.min | tempConvert | mathRound }}</span>
             </div>
-        </div>
-        <div class="weather-card">
-            <h5>{{ getWeekDays() }}</h5>
-            <img :src="'https://openweathermap.org/img/w/' + weatherData.weather[0].icon + '.png'" alt="Heavy Cloud" />
-            <span> {{ weatherData.main.temp_max }} &deg;C </span>
-            <span> {{ weatherData.main.temp_min }} &deg;C </span>
-        </div>
-        <div class="weather-card">
-            <h5>{{ weatherData.dt }}</h5>
-            <img :src="'https://openweathermap.org/img/w/' + weatherData.weather[0].icon + '.png'" alt="Heavy Cloud" />
-            <span> {{ weatherData.main.temp_max }} &deg;C </span>
-            <span> {{ weatherData.main.temp_min }} &deg;C </span>
-        </div>
-        <div class="weather-card">
-            <h5>{{ weatherData.dt }}</h5>
-            <img :src="'https://openweathermap.org/img/w/' + weatherData.weather[0].icon + '.png'" alt="Heavy Cloud" />
-            <span> {{ weatherData.main.temp_max }} &deg;C </span>
-            <span> {{ weatherData.main.temp_min }} &deg;C </span>
-        </div>
-        <div class="weather-card">
-            <h5>{{ weatherData.dt }}</h5>
-            <img :src="'https://openweathermap.org/img/w/' + weatherData.weather[0].icon + '.png'" alt="Heavy Cloud" />
-            <span> {{ weatherData.main.temp_max }} &deg;C </span>
-            <span> {{ weatherData.main.temp_min }} &deg;C </span>
         </div>
     </div>
 </template>
 
 <script>
-function getWeekDays(date = new Date()) {
-    const d = new Date(+date);
-    const f = new Intl.DateTimeFormat('en-US', {
-        day: 'numeric',
-        month: 'short',
-    });
-    const m = d.getMonth();
-    const list = [];
-    while (d.getMonth() === m) {
-        list.push(f.format(d));
-        d.setDate(d.getDate() + 1);
-    }
-    return list;
-}
-
-console.log(getWeekDays());
-
 export default {
     name: 'FiveDaysForecast',
 
@@ -67,27 +22,12 @@ export default {
         },
     },
     data() {
-        return { city: '' };
+        return {
+            city: '',
+        };
     },
-    // computed: {
-    //     fiveDays(city) {
-    //         return this.$axios.$get(
-    //             `https://api.openweathermap.org/data/2.5/forecast?q=${city},CA&APPID=13e98cc8aba1bfd9310dfab158b20f62&units=metric`,
-    //         );
-    //     },
-    // },
 
-    // methods: {
-    //     weatherData.dt {
-    //         return fiveDays(this.weatherData.dt);
-    //     },
-    //     weatherData.main.temp_max() {
-    //         return tempConverter(this.weatherData.main.temp_max);
-    //     },
-    //     weatherData.main.temp_min() {
-    //         return tempConverter(this.weatherData.main.temp_min);
-    //     },
-    // },
+    computed: {},
 };
 </script>
 
@@ -118,11 +58,19 @@ export default {
 
 .weather-card h5 {
     text-align: center;
-    font-size: 1.063rem;
+    font-size: 1rem;
 }
 
 .weather-card img {
     width: 58px;
     margin: 20px auto;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.inline-flex span {
+    margin: 5px;
 }
 </style>

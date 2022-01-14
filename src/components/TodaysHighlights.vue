@@ -2,26 +2,26 @@
     <div>
         <h4>Today's Highlights</h4>
         <div class="highlights">
-            <!-- <pre>{{ weatherData }}</pre> -->
+            <!-- <pre>{{ forecast }}</pre> -->
             <div>
                 <h5>Wind Status</h5>
                 <p>
-                    <span>{{ weatherData.wind.speed }}<span class="unit">mph</span></span>
+                    <span>{{ weatherData.current.wind_speed }}<span class="unit">mph</span></span>
                 </p>
                 <div class="wind">
                     <button type="submit">
                         <img src="@/assets/svg/near_me_white_24dp.svg" alt="Near me" />
                     </button>
-                    <span :style="`transform: rotate(${{ windDirIcon }}deg)`"
+                    <!-- <span :style="`transform: rotate(${{ windDirIcon }}deg)`"
                         ><img src="@/assets/svg/near_me_white_24dp.svg" alt="Near me"
-                    /></span>
+                    /></span> -->
                     <span>{{ windDirStr }}</span>
                 </div>
             </div>
             <div>
                 <h5>Humidity</h5>
                 <p>
-                    <span>{{ weatherData.main.humidity }}<span class="unit">&#37;</span></span>
+                    <span>{{ weatherData.current.humidity }}<span class="unit">&#37;</span></span>
                 </p>
                 <div class="prog">
                     <div class="indicators">
@@ -29,8 +29,8 @@
                         <span>50</span>
                         <span>100</span>
                     </div>
-                    <div class="bar">
-                        <div class="percentage"></div>
+                    <div class="bar position-relative">
+                        <div class="percentage position-absolute"></div>
                     </div>
                     <div class="unit">
                         <span>&#37;</span>
@@ -40,13 +40,13 @@
             <div>
                 <h5>Visibility</h5>
                 <p>
-                    <span>{{ Math.round(weatherData.visibility) }}<span class="unit">miles</span></span>
+                    <span>{{ weatherData.current.visibility }}<span class="unit">miles</span></span>
                 </p>
             </div>
             <div>
                 <h5>Air Pressure</h5>
                 <p>
-                    <span>{{ weatherData.main.pressure }}<span class="unit">mb</span></span>
+                    <span>{{ weatherData.current.pressure }}<span class="unit">mb</span></span>
                 </p>
             </div>
         </div>
@@ -78,11 +78,11 @@ export default {
 
     computed: {
         windDirIcon() {
-            return this.weatherData.wind.deg + 90;
+            return this.weatherData.current.wind_deg + 90;
         },
         // Points cardinaux
         windDirStr() {
-            return windDirection(this.weatherData.wind.deg);
+            return windDirection(this.weatherData.current.wind_deg);
         },
     },
 };
@@ -93,7 +93,7 @@ export default {
 
 h4 {
     // font-size: 18px;
-    color: #e7e7eb;
+    color: $color-light-grayish-blue;
     margin-bottom: 32px;
     margin-top: 12px;
     font-weight: 700;
@@ -103,7 +103,7 @@ h4 {
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 48px;
-    color: #e7e7eb;
+    color: $color-light-grayish-blue;
 }
 
 @media (min-width: 768px) {
@@ -115,7 +115,7 @@ h4 {
 }
 
 .highlights > div {
-    background: #1e213a;
+    background: $color-dark-desaturated-blue;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -186,7 +186,7 @@ button img {
     margin-top: 2px;
     background-color: #e7e7eb;
     border-radius: 100px;
-    position: relative;
+    // position: relative;
 }
 
 .percentage {
@@ -195,7 +195,7 @@ button img {
 
 .prog .bar div {
     height: 100%;
-    position: absolute;
+    // position: absolute;
     top: 0;
     left: 0;
     background: #ffec65;

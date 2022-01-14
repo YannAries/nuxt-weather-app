@@ -1,9 +1,9 @@
 <template>
-    <div id="app">
+    <div id="app" class="margin-0 padding-0">
         <main>
             <default-weather :weather-data="data" @get-weather="getWeather" />
             <aside>
-                <weather-details :weather-data="data" />
+                <weather-details :weather-data="forecast" />
             </aside>
         </main>
     </div>
@@ -13,25 +13,31 @@
 import DefaultWeather from '@/components/DefaultWeather';
 import WeatherDetails from '@/components/WeatherDetails';
 
+const apiKey = process.env.NUXT_APP_WEATHER_API_KEY;
+
 export default {
     components: {
         DefaultWeather,
         WeatherDetails,
     },
     async asyncData({ $axios }) {
+        // TODO: Renommer data
         const data = await $axios.$get(
-            `https://api.openweathermap.org/data/2.5/weather?q=Quebec,CA&APPID=13e98cc8aba1bfd9310dfab158b20f62&units=metric`,
+            `https://api.openweathermap.org/data/2.5/weather?q=Quebec,CA&APPID=${apiKey}&units=metric`,
         );
-        return { data };
+        const forecast = await $axios.$get(
+            `https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&exclude=hourly,alerts,minutely&appid=${apiKey}&units=metric`,
+        );
+        return { data, forecast };
     },
     data() {
         return {};
     },
+
     methods: {
         async getWeather(city) {
             const response = await this.$axios.$get(
-                // `https://api.openweathermap.org/data/2.5/weather?q=${city},CA&APPID=13e98cc8aba1bfd9310dfab158b20f62&units=metric`,
-                `https://api.openweathermap.org/data/2.5/weather?q=${city},CA&APPID=13e98cc8aba1bfd9310dfab158b20f62&units=metric`,
+                `https://api.openweathermap.org/data/2.5/weather?q=${city},CA&APPID=${apiKey}&units=metric`,
             );
             this.data = response;
         },
@@ -42,13 +48,8 @@ export default {
 <style lang="scss" scoped>
 // TODO: remplacer avec foundation
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
 #app {
-    font-family: Raleway, sans-serif;
+    font-family: $body-font-family;
 }
 
 main {
@@ -63,12 +64,12 @@ main {
     main {
         grid-template-columns: 31% 69%;
         min-height: 100vh;
-        overflow: hidden;
+        $prototype-overflow: (hidden);
     }
 }
 
 aside {
-    background: #100e1d;
+    background: $color-blue-magenta;
     height: 100%;
     z-index: 10;
 }

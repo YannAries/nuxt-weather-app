@@ -1,5 +1,8 @@
-// import Vue from 'vue';
-// import axios from '@nuxtjs/axios';
+import Vue from 'vue';
+import axios from '@nuxtjs/axios';
 
-// axios.defaults.baseURL = 'http://api.openweathermap.org/data/2.5';
-// Vue.http = Vue.prototype.$http = axios;
+Vue.filter('celcius', function (value) {
+    if (!value) return 'F';
+    value = value.toString();
+    return value.charAt(0).toUpperCase() + value.slice(1);
+});

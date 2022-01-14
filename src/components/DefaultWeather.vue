@@ -10,8 +10,8 @@
                     <img src="@/assets/svg/gps_fixed_white_24dp.svg" alt="User Current location" />
                 </button>
             </div>
-            <div v-if="weatherData.weather" class="weather-symbol">
-                <img src="@/assets/svg/cloud_white_24dp.svg" alt="White cloud" />
+            <div v-if="weatherData.weather" class="weather-symbol position-relative">
+                <!-- <img src="@/assets/svg/cloud_white_24dp.svg" alt="White cloud" /> -->
                 <img
                     alt="weather icon"
                     :src="'https://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@4x.png'"
@@ -22,7 +22,7 @@
                     <span>{{ weatherData.main.temp }}<span class="unit">&deg;C</span></span>
                 </h3>
             </div>
-            <h4 class="type">{{ weatherData.weather[0].description }}</h4>
+            <h4 class="type text-capitalize">{{ weatherData.weather[0].description }}</h4>
             <div class="footer">
                 <div class="date">
                     <span>Today</span>
@@ -50,10 +50,11 @@
                         </span>
                         <input
                             id="input-search"
-                            v-model.trim="city"
-                            type="text"
-                            name=""
+                            v-model="city"
+                            type="search"
+                            name="q"
                             placeholder="search location"
+                            aria-label="search through app"
                         />
                     </div>
                     <button type="submit">Search</button>
@@ -97,12 +98,12 @@ export default {
                     },
                 );
             } else {
-                console.log('Your browser does not support geolocalisation!');
+                console.log('Your browser does not support geolocalisation !');
             }
         },
 
-        // Obtenir date courant
         currentDateTime() {
+            // ou utiliser MomentJS
             const dateObj = new Date();
             const months = [
                 'January',
@@ -124,20 +125,14 @@ export default {
             const month = months[dateObj.getMonth()];
             return `${day}${','} ${date} ${month}`;
         },
-
-        // temp() {
-        //     return Math.round(weatherData.temp - 273);
-        // },
     },
 };
 </script>
 
 <style lang="scss" scoped>
-// TODO: remplacer avec foundation
-
 aside {
     height: 100vh;
-    background-color: #1e213a;
+    background-color: $color-dark-desaturated-blue;
 }
 
 @media (min-width: 768px) {
@@ -147,7 +142,7 @@ aside {
 }
 
 .container {
-    background: #1e213a;
+    background: $color-dark-desaturated-blue;
     height: 100%;
     margin: auto;
     flex-direction: column;
@@ -175,13 +170,13 @@ aside {
     align-items: center;
     justify-content: center;
     height: 40px;
-    background-color: #6e707a;
-    color: #e7e7eb;
+    background-color: $color-grayish-blue;
+    color: $color-light-grayish-blue;
     border: none;
     outline: none;
     cursor: pointer;
     box-shadow: 0 4px 4px rgba(0 0 0 /25%);
-    transition: all 0.3s ease-in-out;
+    transition: transform 1s;
 }
 
 .search {
@@ -195,7 +190,7 @@ aside {
 }
 
 .weather-symbol {
-    position: relative;
+    // position: relative;
     width: 120%;
     padding: 60px 0;
     box-sizing: border-box;
@@ -230,7 +225,7 @@ aside {
 
 .default-temperature h3 {
     text-align: center;
-    color: #e7e7eb;
+    color: $color-light-grayish-blue;
     font-size: 96px;
     font-weight: 500;
 }
@@ -242,16 +237,16 @@ aside {
 // }
 
 .default-temperature .unit {
-    color: #a09fb1;
+    color: $color-dark-grayish-blue;
     font-size: 48px;
 }
 
 .type {
-    color: #a09fb1;
+    color: $color-dark-grayish-blue;
     text-align: center;
     font-size: 24px;
     font-weight: 600;
-    text-transform: capitalize;
+    // text-transform: capitalize;
 }
 
 .footer {
@@ -269,7 +264,7 @@ aside {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #a09fb1;
+    color: $color-dark-grayish-blue;
     font-size: 18px;
     font-weight: 500;
 }
@@ -279,7 +274,7 @@ aside {
 }
 
 .footer .location {
-    color: #a09fb1;
+    color: $color-dark-grayish-blue;
     font-size: 18px;
     font-weight: 500;
     margin-top: 15px;
@@ -306,7 +301,7 @@ aside {
 }
 
 .search-container {
-    background-color: #1e213a;
+    background-color: $color-dark-desaturated-blue;
     position: absolute;
     left: 0;
     right: 0;
@@ -352,7 +347,7 @@ aside {
     border-radius: 100%;
     transition: all 0.3s ease-in-out;
     position: absolute;
-    right: 1rem;
+    right: 0rem;
 }
 
 .close-bar img {
@@ -414,7 +409,7 @@ aside {
     transition: all 0.3s ease-in-out;
 }
 
-#input-search {
-    padding-inline-start: -0.1rem;
-}
+// #input-search {
+//     padding-inline-start: -0.1rem;
+// }
 </style>
