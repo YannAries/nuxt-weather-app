@@ -1,7 +1,7 @@
 <template>
     <div class="weather-forecast">
         <div v-for="day in weatherData.daily.slice(1, 6)" :key="day.dt" class="weather-card">
-            <h5>{{ $moment.unix(day.dt).format('ddd, DD MMM') }}</h5>
+            <h5 class="text-center">{{ $moment.unix(day.dt).format('ddd, DD MMM') }}</h5>
             <img :src="'https://openweathermap.org/img/w/' + day.weather[0].icon + '.png'" alt="weather" />
             <div class="inline-flex">
                 <span> {{ day.temp.max | tempConvert | mathRound }}</span>
@@ -52,7 +52,7 @@ export default {
     color: $color-athens-gray;
     margin-bottom: 20px;
     h5 {
-        text-align: center;
+        // text-align: center;
         font-size: 1rem;
     }
     img {

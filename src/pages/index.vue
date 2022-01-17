@@ -2,7 +2,7 @@
     <div id="app" class="margin-0 padding-0">
         <main>
             <default-weather :weather-data="data" @get-weather="getWeather" />
-            <aside>
+            <aside class="height-100">
                 <weather-details :weather-data="forecast" />
             </aside>
         </main>
@@ -13,14 +13,14 @@
 import DefaultWeather from '@/components/DefaultWeather';
 import WeatherDetails from '@/components/WeatherDetails';
 
-const apiKey = process.env.NUXT_APP_WEATHER_API_KEY;
-
 export default {
     components: {
         DefaultWeather,
         WeatherDetails,
     },
-    async asyncData({ $axios }) {
+    async asyncData({ $axios, $config }) {
+        const apiKey = $config.nuxtAppWeatherApiKey;
+        console.log(apiKey, 'apiKey');
         // TODO: Renommer data
         const data = await $axios.$get(
             `https://api.openweathermap.org/data/2.5/weather?q=Quebec&APPID=${apiKey}&units=metric`,
@@ -36,6 +36,7 @@ export default {
 
     methods: {
         async getWeather(city) {
+            const apiKey = this.$config.nuxtAppWeatherApiKey;
             const response = await this.$axios.$get(
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=metric`,
             );
@@ -58,7 +59,7 @@ main {
 }
 aside {
     background: $color-vulcan;
-    height: 100%;
+    // height: 100%;
     z-index: 10;
 }
 @media (min-width: 768px) {

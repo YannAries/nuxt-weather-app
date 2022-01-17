@@ -22,7 +22,7 @@
                     <span>{{ weatherData.main.temp }}<span class="unit">&deg;C</span></span>
                 </h3>
             </div>
-            <h4 class="type text-capitalize">{{ weatherData.weather[0].description }}</h4>
+            <h4 class="type text-capitalize text-center">{{ weatherData.weather[0].description }}</h4>
             <div class="footer">
                 <div class="date">
                     <span>Today</span>
@@ -144,9 +144,9 @@ aside {
     align-items: center;
     justify-content: space-between;
     position: relative;
-    width: 100%;
+    width: $container-100;
     margin: auto;
-    inline-size: 100%;
+    inline-size: $container-100;
     z-index: 2;
     padding-inline-end: 2.875rem;
     padding-inline-start: 2.875rem;
@@ -176,7 +176,7 @@ aside {
 }
 .icon {
     width: 40px;
-    border-radius: 100%;
+    border-radius: $container-100;
 }
 .weather-symbol {
     position: relative;
@@ -189,8 +189,8 @@ aside {
         position: absolute;
         left: 0;
         top: 0;
-        width: 100%;
-        height: 100%;
+        width: $container-100;
+        height: $container-100;
         z-index: 1;
         opacity: 0.1;
         background: url(@/assets/img/Cloud-background.png) no-repeat;
@@ -217,7 +217,7 @@ aside {
 }
 .type {
     color: $color-santas-gray;
-    text-align: center;
+    // text-align: center;
     font-size: 24px;
     font-weight: 600;
 }
@@ -258,7 +258,7 @@ aside {
     left: 0;
     right: 0;
     height: 100vh;
-    width: 100%;
+    width: $container-100;
 }
 .close-bar {
     text-align: right;
@@ -273,13 +273,13 @@ aside {
         padding: 0;
         width: 24px;
         height: 24px;
-        border-radius: 100%;
+        border-radius: $container-100;
         transition: all 0.3s ease-in-out;
         position: absolute;
         right: 0rem;
     }
     img {
-        height: 100%;
+        height: $container-100;
     }
 }
 .search-bar {
@@ -313,7 +313,7 @@ aside {
         font-size: 1em;
         color: $color-tapa;
         flex-shrink: 1;
-        inline-size: 100%;
+        inline-size: $container-100;
         padding-bottom: 0rem;
         outline: none;
         box-shadow: none;
@@ -334,7 +334,7 @@ aside {
 }
 @media (min-width: 768px) {
     aside {
-        height: 100%;
+        height: $container-100;
     }
     .search-container {
         width: 31%;

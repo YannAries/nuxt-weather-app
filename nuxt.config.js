@@ -15,18 +15,9 @@ export default {
     //     OPENWEATHERMAP_API_KEY: process.env.OPENWEATHERMAP_API_KEY
     // },
 
-    // publicRuntimeConfig: {
-    //     axios: {
-    //         browserBaseURL: process.env.BROWSER_BASE_URL
-    //     }
-    // },
-
-    privateRuntimeConfig: {
-        axios: {
-            nuxtAppWeatherApiKey: process.env.NUXT_APP_WEATHER_API_KEY
-        }
+    publicRuntimeConfig: {
+        nuxtAppWeatherApiKey: process.env.NUXT_APP_WEATHER_API_KEY
     },
-
 
     /*
      ** Headers of the page

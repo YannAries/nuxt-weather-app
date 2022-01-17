@@ -32,7 +32,7 @@
                     <div class="bar position-relative">
                         <div class="percentage position-absolute"></div>
                     </div>
-                    <div class="unit">
+                    <div class="unit text-right">
                         <span>&#37;</span>
                     </div>
                 </div>
@@ -124,7 +124,7 @@ h4 {
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 100%;
+            border-radius: $container-100;
         }
         span {
             font-size: 14px;
@@ -135,7 +135,7 @@ h4 {
         font-size: 32px;
     }
     .prog {
-        width: 100%;
+        width: $container-100;
     }
 }
 button {
@@ -152,13 +152,13 @@ button {
     }
     .bar {
         height: 8px;
-        width: 100%;
+        width: $container-100;
         margin-top: 2px;
         background-color: $color-athens-gray;
         border-radius: 100px;
         // position: relative;
         div {
-            height: 100%;
+            height: $container-100;
             // position: absolute;
             top: 0;
             left: 0;
@@ -167,7 +167,7 @@ button {
         }
     }
     .unit {
-        text-align: right;
+        // text-align: right;
         margin-top: 4px;
         color: $color-santas-gray;
         font-size: 12px;
