@@ -23,7 +23,7 @@ export default {
     async asyncData({ $axios }) {
         // TODO: Renommer data
         const data = await $axios.$get(
-            `https://api.openweathermap.org/data/2.5/weather?q=Quebec,CA&APPID=${apiKey}&units=metric`,
+            `https://api.openweathermap.org/data/2.5/weather?q=Quebec&APPID=${apiKey}&units=metric`,
         );
         const forecast = await $axios.$get(
             `https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&exclude=hourly,alerts,minutely&appid=${apiKey}&units=metric`,
@@ -37,7 +37,7 @@ export default {
     methods: {
         async getWeather(city) {
             const response = await this.$axios.$get(
-                `https://api.openweathermap.org/data/2.5/weather?q=${city},CA&APPID=${apiKey}&units=metric`,
+                `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=metric`,
             );
             this.data = response;
         },
@@ -46,12 +46,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// TODO: remplacer avec foundation
-
 #app {
     font-family: $body-font-family;
 }
-
 main {
     height: auto;
     display: grid;
@@ -59,18 +56,16 @@ main {
     align-items: center;
     overflow: auto;
 }
-
+aside {
+    background: $color-vulcan;
+    height: 100%;
+    z-index: 10;
+}
 @media (min-width: 768px) {
     main {
         grid-template-columns: 31% 69%;
         min-height: 100vh;
         $prototype-overflow: (hidden);
     }
-}
-
-aside {
-    background: $color-blue-magenta;
-    height: 100%;
-    z-index: 10;
 }
 </style>

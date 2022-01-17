@@ -4,8 +4,8 @@
         <div class="highlights">
             <!-- <pre>{{ forecast }}</pre> -->
             <div>
-                <h5>Wind Status</h5>
-                <p>
+                <h5 class="text-center">Wind Status</h5>
+                <p class="text-center">
                     <span>{{ weatherData.current.wind_speed }}<span class="unit">mph</span></span>
                 </p>
                 <div class="wind">
@@ -19,8 +19,8 @@
                 </div>
             </div>
             <div>
-                <h5>Humidity</h5>
-                <p>
+                <h5 class="text-center">Humidity</h5>
+                <p class="text-center">
                     <span>{{ weatherData.current.humidity }}<span class="unit">&#37;</span></span>
                 </p>
                 <div class="prog">
@@ -38,14 +38,14 @@
                 </div>
             </div>
             <div>
-                <h5>Visibility</h5>
-                <p>
+                <h5 class="text-center">Visibility</h5>
+                <p class="text-center">
                     <span>{{ weatherData.current.visibility }}<span class="unit">miles</span></span>
                 </p>
             </div>
             <div>
-                <h5>Air Pressure</h5>
-                <p>
+                <h5 class="text-center">Air Pressure</h5>
+                <p class="text-center">
                     <span>{{ weatherData.current.pressure }}<span class="unit">mb</span></span>
                 </p>
             </div>
@@ -89,23 +89,93 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// TODO: remplacer avec foundation
-
 h4 {
-    // font-size: 18px;
-    color: $color-light-grayish-blue;
+    color: $color-athens-gray;
     margin-bottom: 32px;
     margin-top: 12px;
     font-weight: 700;
 }
-
 .highlights {
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 48px;
-    color: $color-light-grayish-blue;
+    color: $color-athens-gray;
+    > div {
+        background: $color-mirage;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    p {
+        font-size: 48px;
+        margin: 10px 0;
+    }
+    .wind {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        button {
+            margin-right: 10px;
+            width: 30px;
+            height: 30px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 100%;
+        }
+        span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+    .unit {
+        font-size: 32px;
+    }
+    .prog {
+        width: 100%;
+    }
 }
-
+button {
+    img {
+        transform: rotate(170deg);
+    }
+}
+.prog {
+    .indicators {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: $color-santas-gray;
+    }
+    .bar {
+        height: 8px;
+        width: 100%;
+        margin-top: 2px;
+        background-color: $color-athens-gray;
+        border-radius: 100px;
+        // position: relative;
+        div {
+            height: 100%;
+            // position: absolute;
+            top: 0;
+            left: 0;
+            background: $color-paris-daisy;
+            border-radius: 100px;
+        }
+    }
+    .unit {
+        text-align: right;
+        margin-top: 4px;
+        color: $color-santas-gray;
+        font-size: 12px;
+    }
+}
+.percentage {
+    width: 70%;
+}
 @media (min-width: 768px) {
     .highlights {
         grid-template-columns: 1fr 1fr;
@@ -113,99 +183,11 @@ h4 {
         column-gap: 48px;
     }
 }
-
-.highlights > div {
-    background: $color-dark-desaturated-blue;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.highlights h5 {
-    text-align: center;
-}
-
-.highlights p {
-    text-align: center;
-    font-size: 48px;
-    margin: 10px 0;
-}
-
 @media (min-height: 768px) {
-    .highlights p {
-        font-size: 64px;
+    .highlights {
+        p {
+            font-size: 64px;
+        }
     }
-}
-
-.highlights .wind {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.highlights .wind button {
-    margin-right: 10px;
-    width: 30px;
-    height: 30px;
-    border: none;
-    outline: none;
-    background: hsla(0, 0%, 100%, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 100%;
-}
-
-.highlights .wind span {
-    font-size: 14px;
-    font-weight: 500;
-}
-
-button img {
-    transform: rotate(170deg);
-}
-
-.highlights .unit {
-    font-size: 32px;
-}
-
-.highlights .prog {
-    width: 100%;
-}
-
-.prog .indicators {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #a09fb1;
-}
-
-.prog .bar {
-    height: 8px;
-    width: 100%;
-    margin-top: 2px;
-    background-color: #e7e7eb;
-    border-radius: 100px;
-    // position: relative;
-}
-
-.percentage {
-    width: 70%;
-}
-
-.prog .bar div {
-    height: 100%;
-    // position: absolute;
-    top: 0;
-    left: 0;
-    background: #ffec65;
-    border-radius: 100px;
-}
-
-.prog .unit {
-    text-align: right;
-    margin-top: 4px;
-    color: #a09fb1;
-    font-size: 12px;
 }
 </style>

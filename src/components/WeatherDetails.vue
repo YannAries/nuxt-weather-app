@@ -49,8 +49,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// TODO: remplacer avec foundation
-
 .container {
     width: 80%;
     height: 100%;
@@ -61,39 +59,34 @@ export default {
     box-sizing: border-box;
     padding: 40px 0;
 }
-
 .temp-unit {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
     justify-content: flex-end;
-}
-
-.temp-unit button {
-    border: none;
-    outline: none;
-    font-weight: 700;
-    font-size: 18px;
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    background-color: $color-dark-md-blue-magenta;
-    color: $color-white;
-    transition: all 0.3s ease-in-out;
-}
-
-.temp-unit button:first-child {
-    margin-right: 12px;
-}
-
-.temp-unit button:focus {
-    background: $color-white;
-    color: $color-black;
+    button {
+        border: none;
+        outline: none;
+        font-weight: 700;
+        font-size: 18px;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        background-color: $color-comet;
+        color: $color-white;
+        transition: all 0.3s ease-in-out;
+        &:first-child {
+            margin-right: 12px;
+        }
+        &:focus {
+            background: $color-white;
+            color: $color-black;
+        }
+    }
 }
 
 footer {
-    color: #616475;
-    // text-align: center;
+    color: $color-shuttle-gray;
     font-size: 14px;
     font-weight: 600;
     margin-top: 20px;

@@ -10,7 +10,7 @@
                     <img src="@/assets/svg/gps_fixed_white_24dp.svg" alt="User Current location" />
                 </button>
             </div>
-            <div v-if="weatherData.weather" class="weather-symbol position-relative">
+            <div v-if="weatherData.weather" class="weather-symbol">
                 <!-- <img src="@/assets/svg/cloud_white_24dp.svg" alt="White cloud" /> -->
                 <img
                     alt="weather icon"
@@ -132,17 +132,10 @@ export default {
 <style lang="scss" scoped>
 aside {
     height: 100vh;
-    background-color: $color-dark-desaturated-blue;
+    background-color: $color-mirage;
 }
-
-@media (min-width: 768px) {
-    aside {
-        height: 100%;
-    }
-}
-
 .container {
-    background: $color-dark-desaturated-blue;
+    background: $color-mirage;
     height: 100%;
     margin: auto;
     flex-direction: column;
@@ -150,147 +143,6 @@ aside {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 20px 20px 0 20px;
-}
-
-@media (min-height: 768px) {
-    header {
-        padding: 30px 40px 0 40px;
-    }
-}
-
-.btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    background-color: $color-grayish-blue;
-    color: $color-light-grayish-blue;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    box-shadow: 0 4px 4px rgba(0 0 0 /25%);
-    transition: transform 1s;
-}
-
-.search {
-    padding: 0 18px;
-    font-size: 16px;
-}
-
-.icon {
-    width: 40px;
-    border-radius: 100%;
-}
-
-.weather-symbol {
-    // position: relative;
-    width: 120%;
-    padding: 60px 0;
-    box-sizing: border-box;
-}
-
-.weather-symbol:before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0.1;
-    background: url(@/assets/img/Cloud-background.png) no-repeat;
-    background-position: 50%;
-    background-size: cover;
-}
-
-.weather-symbol img {
-    display: block;
-    width: 170px;
-    margin: auto;
-}
-
-// @media (min-height: 768px) {
-//     .weather-symbol img {
-//         width: 212px;
-//     }
-// }
-
-.default-temperature h3 {
-    text-align: center;
-    color: $color-light-grayish-blue;
-    font-size: 96px;
-    font-weight: 500;
-}
-
-// @media (min-height: 768px) {
-//     .default-temperature h3 {
-//         font-size: 120px;
-//     }
-// }
-
-.default-temperature .unit {
-    color: $color-dark-grayish-blue;
-    font-size: 48px;
-}
-
-.type {
-    color: $color-dark-grayish-blue;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 600;
-    // text-transform: capitalize;
-}
-
-.footer {
-    padding-bottom: 20px;
-    box-sizing: border-box;
-}
-
-@media (min-height: 768px) {
-    .footer {
-        padding-bottom: 40px;
-    }
-}
-
-.footer .date {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $color-dark-grayish-blue;
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.footer .separator {
-    margin: 0 15px;
-}
-
-.footer .location {
-    color: $color-dark-grayish-blue;
-    font-size: 18px;
-    font-weight: 500;
-    margin-top: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.location img {
-    width: 18px;
-    height: 18px;
-    margin-right: 5px;
-}
-
-// HiddenSearch
-.container {
     position: relative;
     width: 100%;
     margin: auto;
@@ -299,117 +151,226 @@ aside {
     padding-inline-end: 2.875rem;
     padding-inline-start: 2.875rem;
 }
-
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 20px 0 20px;
+}
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    background-color: $color-storm-gray;
+    color: $color-athens-gray;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 4px 4px rgba(0 0 0 /25%);
+    transition: transform 1s;
+}
+.search {
+    padding: 0 18px;
+    font-size: 16px;
+}
+.icon {
+    width: 40px;
+    border-radius: 100%;
+}
+.weather-symbol {
+    position: relative;
+    width: 120%;
+    padding: 60px 0;
+    box-sizing: border-box;
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.1;
+        background: url(@/assets/img/Cloud-background.png) no-repeat;
+        background-position: 50%;
+        background-size: cover;
+    }
+    img {
+        display: block;
+        width: 170px;
+        margin: auto;
+    }
+}
+.default-temperature {
+    h3 {
+        text-align: center;
+        color: $color-athens-gray;
+        font-size: 96px;
+        font-weight: 500;
+    }
+    .unit {
+        color: $color-santas-gray;
+        font-size: 48px;
+    }
+}
+.type {
+    color: $color-santas-gray;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+}
+.footer {
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    .date {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color-santas-gray;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .separator {
+        margin: 0 15px;
+    }
+    .location {
+        color: $color-santas-gray;
+        font-size: 18px;
+        font-weight: 500;
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.location {
+    img {
+        width: 18px;
+        height: 18px;
+        margin-right: 5px;
+    }
+}
 .search-container {
-    background-color: $color-dark-desaturated-blue;
+    background-color: $color-mirage;
     position: absolute;
     left: 0;
     right: 0;
     height: 100vh;
     width: 100%;
 }
-
-@media (min-width: 768px) {
-    .search-container {
-        width: 31%;
-        position: fixed;
-    }
-}
-
 .close-bar {
     text-align: right;
     padding: 10px 15px;
     box-sizing: border-box;
     margin-bottom: 20px;
-}
-
-@media (min-width: 768px) {
-    .close-bar {
-        text-align: right;
-        padding: 15px 20px;
+    button {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        cursor: pointer;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+        border-radius: 100%;
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+        right: 0rem;
+    }
+    img {
+        height: 100%;
     }
 }
-
-@media (min-height: 768px) {
-    .close-bar {
-        padding: 15px 20px;
-    }
-}
-
-.close-bar button {
-    border: none;
-    outline: none;
-    background-color: transparent;
-    cursor: pointer;
-    padding: 0;
-    width: 24px;
-    height: 24px;
-    border-radius: 100%;
-    transition: all 0.3s ease-in-out;
-    position: absolute;
-    right: 0rem;
-}
-
-.close-bar img {
-    height: 100%;
-}
-
 .search-bar {
     width: 90%;
     display: flex;
     align-items: center;
     padding-block-start: 4.75rem;
     position: absolute;
+    div {
+        width: 75%;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        height: 44px;
+        border: 1px solid $color-athens-gray;
+        transition: all 0.3s ease-in-out;
+    }
+    span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        min-width: 35px;
+    }
+    input {
+        box-sizing: border-box;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        padding: 12px 0;
+        font-size: 1em;
+        color: $color-tapa;
+        flex-shrink: 1;
+        inline-size: 100%;
+        padding-bottom: 0rem;
+        outline: none;
+        box-shadow: none;
+    }
+    button {
+        border: none;
+        outline: none;
+        font-size: 1em;
+        background: $color-royal-blue;
+        border: 1px solid $color-royal-blue;
+        color: $color-white;
+        cursor: pointer;
+        padding: 12px 0;
+        width: 23%;
+        margin-left: 2%;
+        transition: all 0.3s ease-in-out;
+    }
 }
-
-.search-bar div {
-    width: 75%;
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    height: 44px;
-    border: 1px solid #e7e7eb;
-    transition: all 0.3s ease-in-out;
+@media (min-width: 768px) {
+    aside {
+        height: 100%;
+    }
+    .search-container {
+        width: 31%;
+        position: fixed;
+    }
+    .close-bar {
+        text-align: right;
+        padding: 15px 20px;
+    }
 }
+// @media (min-height: 768px) {
+//     header {
+//         padding: 30px 40px 0 40px;
+//     }
+//     .footer {
+//         padding-bottom: 40px;
+//     }
+//     .close-bar {
+//         padding: 15px 20px;
+//     }
+// }
 
-.search-bar span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 44px;
-    min-width: 35px;
-}
-
-.search-bar input {
-    box-sizing: border-box;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    padding: 12px 0;
-    font-size: 1em;
-    color: #757571;
-    flex-shrink: 1;
-    inline-size: 100%;
-    padding-bottom: 0rem;
-    outline: none;
-    box-shadow: none;
-}
-
-.search-bar button {
-    border: none;
-    outline: none;
-    font-size: 1em;
-    background: #3c47e9;
-    border: 1px solid #3c47e9;
-    color: #fff;
-    cursor: pointer;
-    padding: 12px 0;
-    width: 23%;
-    margin-left: 2%;
-    transition: all 0.3s ease-in-out;
-}
-
+// comment
 // #input-search {
 //     padding-inline-start: -0.1rem;
+// }
+
+// @media (min-height: 768px) {
+//     .weather-symbol img {
+//         width: 212px;
+//     }
+// }
+
+// @media (min-height: 768px) {
+//     .default-temperature h3 {
+//         font-size: 120px;
+//     }
 // }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="weather-forecast">
-        <div v-for="day in weatherData.daily.slice(2, 7)" :key="day.dt" class="weather-card">
+        <div v-for="day in weatherData.daily.slice(1, 6)" :key="day.dt" class="weather-card">
             <h5>{{ $moment.unix(day.dt).format('ddd, DD MMM') }}</h5>
             <img :src="'https://openweathermap.org/img/w/' + day.weather[0].icon + '.png'" alt="weather" />
             <div class="inline-flex">
@@ -32,17 +32,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// TODO: remplacer avec foundation
-
 .weather-forecast {
     display: flex;
     align-items: stretch;
     justify-content: space-between;
     flex-wrap: wrap;
 }
-
 .weather-card {
-    background: #1e213a;
+    background: $color-mirage;
     padding: 15px;
     width: 120px;
     box-sizing: border-box;
@@ -52,25 +49,21 @@ export default {
     flex-direction: column;
     font-weight: 500;
     font-size: 1em;
-    color: #e7e7eb;
+    color: $color-athens-gray;
     margin-bottom: 20px;
+    h5 {
+        text-align: center;
+        font-size: 1rem;
+    }
+    img {
+        width: 58px;
+        margin: 20px auto;
+    }
 }
-
-.weather-card h5 {
-    text-align: center;
-    font-size: 1rem;
-}
-
-.weather-card img {
-    width: 58px;
-    margin: 20px auto;
-}
-
 .inline-flex {
     display: inline-flex;
-}
-
-.inline-flex span {
-    margin: 5px;
+    span {
+        margin: 5px;
+    }
 }
 </style>
