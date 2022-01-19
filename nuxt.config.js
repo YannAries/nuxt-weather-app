@@ -68,7 +68,7 @@ export default {
     plugins: [
         { src: '@/plugins/what-input.js', mode: 'client' },
         { src: '@/plugins/filters.js' },
-
+        { src: '@/plugins/axios.js' },
     ],
 
     /*

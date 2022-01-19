@@ -39,8 +39,8 @@
         "@nuxtjs/svg": "^0.3.0",
         "env": "^0.0.2",
         "foundation-sites": "^6.7.3",
-        "netlify-cli": "^8.8.2",
         "nuxt": "^2.15.8",
+        "vue-axios-interceptors": "^0.3.2",
         "what-input": "^5.2.10",
         "yarn": "^1.22.17"
     },
