@@ -2,7 +2,7 @@
     <div id="app" class="margin-0 padding-0">
         <main>
             <default-weather :weather-data="data" @get-weather="getWeather" />
-            <aside class="height-100">
+            <aside>
                 <weather-details :weather-data="forecast" />
             </aside>
         </main>
@@ -53,22 +53,21 @@ export default {
     font-family: $body-font-family;
 }
 main {
-    height: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    overflow: auto;
+    @include display-grid;
+    height: $global-auto;
+    align-items: $global-center;
+    overflow: $global-auto;
 }
 aside {
     background: $color-vulcan;
-    // height: 100%;
+    height: $container-100;
     z-index: 10;
 }
 @media (min-width: 768px) {
     main {
         grid-template-columns: 31% 69%;
         min-height: 100vh;
-        $prototype-overflow: (hidden);
+        overflow: hidden;
     }
 }
 </style>

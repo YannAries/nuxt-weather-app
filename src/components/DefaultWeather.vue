@@ -2,7 +2,6 @@
     <aside>
         <div v-if="showContainer" class="container">
             <div class="header">
-                <!-- <pre>{{ weatherData }}</pre> -->
                 <button class="btn search" type="submit" @click="showContainer = !showContainer">
                     Search for places
                 </button>
@@ -18,7 +17,7 @@
                 />
             </div>
             <div class="default-temperature">
-                <h3>
+                <h3 class="text-center">
                     <span>{{ weatherData.main.temp }}<span class="unit">&deg;C</span></span>
                 </h3>
             </div>
@@ -69,8 +68,6 @@
 <script>
 export default {
     name: 'DefaultWeather',
-    components: {},
-
     props: {
         weatherData: {
             type: Object,
@@ -80,6 +77,12 @@ export default {
 
     data() {
         return { showContainer: true, city: '', result: {} };
+    },
+
+    created() {
+        setTimeout(() => {
+            this.showContainer = true;
+        }, 3000);
     },
 
     methods: {
@@ -135,17 +138,14 @@ aside {
     background-color: $color-mirage;
 }
 .container {
+    @include display-between;
     background: $color-mirage;
-    height: 100%;
-    margin: auto;
+    height: $container-100;
+    margin: $global-auto;
     flex-direction: column;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    box-sizing: $global-border-box;
     position: relative;
     width: $container-100;
-    margin: auto;
     inline-size: $container-100;
     z-index: 2;
     padding-inline-end: 2.875rem;
@@ -154,24 +154,22 @@ aside {
 .header {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    padding: 20px 20px 0 20px;
+    width: $container-100;
+    padding: 20px 20px $zero-unit 20px;
 }
 .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include center-justify-content;
     height: 40px;
     background-color: $color-storm-gray;
     color: $color-athens-gray;
-    border: none;
-    outline: none;
+    border: $global-none;
+    outline: $global-none;
     cursor: pointer;
-    box-shadow: 0 4px 4px rgba(0 0 0 /25%);
+    box-shadow: $zero-unit 4px 4px rgba(0 0 0 /25%);
     transition: transform 1s;
 }
 .search {
-    padding: 0 18px;
+    padding: $zero-unit 18px;
     font-size: 16px;
 }
 .icon {
@@ -180,15 +178,15 @@ aside {
 }
 .weather-symbol {
     position: relative;
-    width: 120%;
-    padding: 60px 0;
-    box-sizing: border-box;
+    // width: 120%;
+    padding: 60px 140px;
+    box-sizing: $global-border-box;
     &:before {
         content: '';
         display: block;
         position: absolute;
-        left: 0;
-        top: 0;
+        left: $zero-unit;
+        top: $zero-unit;
         width: $container-100;
         height: $container-100;
         z-index: 1;
@@ -200,49 +198,43 @@ aside {
     img {
         display: block;
         width: 170px;
-        margin: auto;
+        margin: $global-auto;
     }
 }
 .default-temperature {
     h3 {
-        text-align: center;
         color: $color-athens-gray;
-        font-size: 96px;
-        font-weight: 500;
+        font-size: 5vw;
+        font-weight: $global-weight-medium;
     }
     .unit {
         color: $color-santas-gray;
-        font-size: 48px;
+        font-size: 2.7vw;
     }
 }
 .type {
     color: $color-santas-gray;
-    // text-align: center;
     font-size: 24px;
     font-weight: 600;
 }
 .footer {
     padding-bottom: 20px;
-    box-sizing: border-box;
+    box-sizing: $global-border-box;
     .date {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include center-justify-content;
         color: $color-santas-gray;
         font-size: 18px;
-        font-weight: 500;
+        font-weight: $global-weight-medium;
     }
     .separator {
-        margin: 0 15px;
+        margin: $zero-unit 15px;
     }
     .location {
+        @include center-justify-content;
         color: $color-santas-gray;
         font-size: 18px;
-        font-weight: 500;
+        font-weight: $global-weight-medium;
         margin-top: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 }
 .location {
@@ -255,22 +247,22 @@ aside {
 .search-container {
     background-color: $color-mirage;
     position: absolute;
-    left: 0;
-    right: 0;
+    left: $zero-unit;
+    right: $zero-unit;
     height: 100vh;
     width: $container-100;
 }
 .close-bar {
     text-align: right;
     padding: 10px 15px;
-    box-sizing: border-box;
+    box-sizing: $global-border-box;
     margin-bottom: 20px;
     button {
-        border: none;
-        outline: none;
-        background-color: transparent;
+        border: $global-none;
+        outline: $global-none;
+        background-color: $color-crystalline;
         cursor: pointer;
-        padding: 0;
+        padding: $zero-unit;
         width: 24px;
         height: 24px;
         border-radius: $container-100;
@@ -285,54 +277,56 @@ aside {
 .search-bar {
     width: 90%;
     display: flex;
-    align-items: center;
+    align-items: $global-center;
     padding-block-start: 4.75rem;
     position: absolute;
     div {
         width: 75%;
         display: flex;
-        align-items: center;
-        box-sizing: border-box;
+        align-items: $global-center;
+        box-sizing: $global-border-box;
         height: 44px;
         border: 1px solid $color-athens-gray;
         transition: all 0.3s ease-in-out;
     }
     span {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include center-justify-content;
         height: 44px;
         min-width: 35px;
     }
     input {
-        box-sizing: border-box;
-        background-color: transparent;
-        border: none;
-        outline: none;
-        padding: 12px 0;
+        box-sizing: $global-border-box;
+        background-color: $color-crystalline;
+        border: $global-none;
+        outline: $global-none;
+        padding: 12px $zero-unit;
         font-size: 1em;
         color: $color-tapa;
         flex-shrink: 1;
         inline-size: $container-100;
         padding-bottom: 0rem;
-        outline: none;
-        box-shadow: none;
+        outline: $global-none;
+        box-shadow: $global-none;
     }
     button {
-        border: none;
-        outline: none;
+        border: $global-none;
+        outline: $global-none;
         font-size: 1em;
         background: $color-royal-blue;
         border: 1px solid $color-royal-blue;
         color: $color-white;
         cursor: pointer;
-        padding: 12px 0;
+        padding: 12px $zero-unit;
         width: 23%;
         margin-left: 2%;
         transition: all 0.3s ease-in-out;
     }
 }
+
 @media (min-width: 768px) {
+    header {
+        padding: 30px 40px $zero-unit 40px;
+    }
     aside {
         height: $container-100;
     }
@@ -340,37 +334,23 @@ aside {
         width: 31%;
         position: fixed;
     }
+    .weather-symbol {
+        padding: $zero-unit;
+        img {
+            width: 212px;
+        }
+    }
+    .icon {
+        margin-left: 10px;
+    }
     .close-bar {
         text-align: right;
         padding: 15px 20px;
     }
+    .footer {
+        .date {
+            font-size: 15px;
+        }
+    }
 }
-// @media (min-height: 768px) {
-//     header {
-//         padding: 30px 40px 0 40px;
-//     }
-//     .footer {
-//         padding-bottom: 40px;
-//     }
-//     .close-bar {
-//         padding: 15px 20px;
-//     }
-// }
-
-// comment
-// #input-search {
-//     padding-inline-start: -0.1rem;
-// }
-
-// @media (min-height: 768px) {
-//     .weather-symbol img {
-//         width: 212px;
-//     }
-// }
-
-// @media (min-height: 768px) {
-//     .default-temperature h3 {
-//         font-size: 120px;
-//     }
-// }
 </style>

@@ -26,38 +26,30 @@ export default {
             city: '',
         };
     },
-
-    computed: {},
 };
 </script>
 
 <style lang="scss" scoped>
 .weather-forecast {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    @include display-wrap;
 }
 .weather-card {
+    @include display-between;
     background: $color-mirage;
     padding: 15px;
     width: 120px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    box-sizing: $global-border-box;
     flex-direction: column;
-    font-weight: 500;
+    font-weight: $global-weight-medium;
     font-size: 1em;
     color: $color-athens-gray;
     margin-bottom: 20px;
     h5 {
-        // text-align: center;
         font-size: 1rem;
     }
     img {
         width: 58px;
-        margin: 20px auto;
+        margin: 20px $global-auto;
     }
 }
 .inline-flex {

@@ -100,6 +100,12 @@ $global-button-cursor: auto;
 $global-color-pick-contrast-tolerance: 0;
 $print-transparent-backgrounds: true;
 $print-hrefs: true;
+$global-center: center;
+$global-auto: auto;
+$global-border-box: border-box;
+$zero-unit: 0;
+$global-none: none;
+$global-weight-medium: 500;
 
 @include add-foundation-colors;
 

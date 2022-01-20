@@ -2,7 +2,6 @@
     <div>
         <h4>Today's Highlights</h4>
         <div class="highlights">
-            <!-- <pre>{{ forecast }}</pre> -->
             <div>
                 <h5 class="text-center">Wind Status</h5>
                 <p class="text-center">
@@ -29,10 +28,10 @@
                         <span>50</span>
                         <span>100</span>
                     </div>
-                    <div class="bar position-relative">
-                        <div class="percentage position-absolute"></div>
+                    <div class="bar">
+                        <div class="percentage"></div>
                     </div>
-                    <div class="unit text-right">
+                    <div class="unit">
                         <span>&#37;</span>
                     </div>
                 </div>
@@ -93,42 +92,37 @@ h4 {
     color: $color-athens-gray;
     margin-bottom: 32px;
     margin-top: 12px;
-    font-weight: 700;
+    font-weight: $prototype-font-bold;
 }
 .highlights {
-    display: grid;
-    grid-template-columns: 1fr;
+    @include display-grid;
     row-gap: 48px;
     color: $color-athens-gray;
     > div {
         background: $color-mirage;
         padding: 20px;
-        box-sizing: border-box;
+        box-sizing: $global-border-box;
     }
     p {
         font-size: 48px;
-        margin: 10px 0;
+        margin: 10px $zero-unit;
     }
     .wind {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include center-justify-content;
         margin-top: 20px;
         button {
+            @include center-justify-content;
             margin-right: 10px;
             width: 30px;
             height: 30px;
-            border: none;
-            outline: none;
+            border: $global-none;
+            outline: $global-none;
             background: rgba(255, 255, 255, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             border-radius: $container-100;
         }
         span {
             font-size: 14px;
-            font-weight: 500;
+            font-weight: $global-weight-medium;
         }
     }
     .unit {
@@ -145,9 +139,7 @@ button {
 }
 .prog {
     .indicators {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        @include display-between;
         color: $color-santas-gray;
     }
     .bar {
@@ -156,18 +148,18 @@ button {
         margin-top: 2px;
         background-color: $color-athens-gray;
         border-radius: 100px;
-        // position: relative;
+        position: relative;
         div {
             height: $container-100;
-            // position: absolute;
-            top: 0;
-            left: 0;
+            position: absolute;
+            top: $zero-unit;
+            left: $zero-unit;
             background: $color-paris-daisy;
             border-radius: 100px;
         }
     }
     .unit {
-        // text-align: right;
+        text-align: right;
         margin-top: 4px;
         color: $color-santas-gray;
         font-size: 12px;
@@ -178,7 +170,7 @@ button {
 }
 @media (min-width: 768px) {
     .highlights {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: none;
         -moz-column-gap: 48px;
         column-gap: 48px;
     }

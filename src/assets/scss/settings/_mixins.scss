@@ -3,7 +3,6 @@
 //  -----------------------------
 // stylelint-disable declaration-block-no-duplicate-properties
 
-
 // Clearfix
 @mixin clearfix {
     &:after {
@@ -11,7 +10,7 @@
     }
     &:before,
     &:after {
-        content: '';
+        content: "";
         display: table;
         line-height: 0;
     }
@@ -75,4 +74,65 @@
         line-height: remove-px($line) + px;
         line-height: rem($line);
     }
+}
+
+@mixin center-container {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+@mixin flex-end {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 20px;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+}
+
+@mixin center-no-justify-content {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+@mixin center-justify-content {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+@mixin display-wrap {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@mixin display-grid {
+    display: grid;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+}
+
+@mixin display-between {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
 }

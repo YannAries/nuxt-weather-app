@@ -1,5 +1,5 @@
 <template>
-    <div class="container height-100">
+    <div class="container">
         <div class="temp-unit">
             <button type="button" @click="convertCelcius">&deg;C</button>
             <button type="button" @click="convertFahr">&deg;F</button>
@@ -50,24 +50,20 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+    @include center-container;
     width: 80%;
     height: $container-100;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-sizing: border-box;
-    padding: 40px 0;
+    margin: $global-auto;
+    box-sizing: $global-border-box;
+    padding: 40px $zero-unit;
 }
 .temp-unit {
-    display: flex;
-    align-items: center;
+    @include flex-end;
     margin-bottom: 20px;
-    justify-content: flex-end;
     button {
-        border: none;
-        outline: none;
-        font-weight: 700;
+        border: $global-none;
+        outline: $global-none;
+        font-weight: $prototype-font-bold;
         font-size: 18px;
         width: 40px;
         height: 40px;
