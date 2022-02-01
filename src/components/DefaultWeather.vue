@@ -184,7 +184,6 @@ aside {
 
 .weather-symbol {
     position: relative;
-    // width: 120%;
     padding: 60px 140px;
     box-sizing: $global-border-box;
     &:before {

@@ -96,10 +96,7 @@ h4 {
 }
 
 .highlights {
-    // @include display-grid;
     display: grid;
-    // -ms-grid-columns: 1fr 1fr;
-    // grid-template-columns: 1fr 1fr;
     row-gap: 48px;
     color: $color-athens-gray;
     > div {
@@ -146,12 +143,6 @@ button {
 .prog {
     .indicators {
         @include display-between;
-        // display: -webkit-box;
-        // display: flex;
-        // -webkit-box-align: center;
-        // align-items: center;
-        // -webkit-box-pack: justify;
-        // justify-content: space-between;
         color: $color-santas-gray;
     }
     .bar {
