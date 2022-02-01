@@ -137,6 +137,7 @@ aside {
     height: 100vh;
     background-color: $color-mirage;
 }
+
 .container {
     @include display-between;
     background: $color-mirage;
@@ -151,12 +152,14 @@ aside {
     padding-inline-end: 2.875rem;
     padding-inline-start: 2.875rem;
 }
+
 .header {
     display: flex;
     justify-content: space-between;
     width: $container-100;
     padding: 20px 20px $zero-unit 20px;
 }
+
 .btn {
     @include center-justify-content;
     height: 40px;
@@ -168,14 +171,17 @@ aside {
     box-shadow: $zero-unit 4px 4px rgba(0 0 0 /25%);
     transition: transform 1s;
 }
+
 .search {
     padding: $zero-unit 18px;
     font-size: 16px;
 }
+
 .icon {
     width: 40px;
     border-radius: $container-100;
 }
+
 .weather-symbol {
     position: relative;
     // width: 120%;
@@ -201,6 +207,7 @@ aside {
         margin: $global-auto;
     }
 }
+
 .default-temperature {
     h3 {
         color: $color-athens-gray;
@@ -212,11 +219,13 @@ aside {
         font-size: 2.7vw;
     }
 }
+
 .type {
     color: $color-santas-gray;
     font-size: 24px;
     font-weight: 600;
 }
+
 .footer {
     padding-bottom: 20px;
     box-sizing: $global-border-box;
@@ -237,6 +246,7 @@ aside {
         margin-top: 15px;
     }
 }
+
 .location {
     img {
         width: 18px;
@@ -244,6 +254,7 @@ aside {
         margin-right: 5px;
     }
 }
+
 .search-container {
     background-color: $color-mirage;
     position: absolute;
@@ -252,6 +263,7 @@ aside {
     height: 100vh;
     width: $container-100;
 }
+
 .close-bar {
     text-align: right;
     padding: 10px 15px;
@@ -274,6 +286,7 @@ aside {
         height: $container-100;
     }
 }
+
 .search-bar {
     width: 90%;
     display: flex;

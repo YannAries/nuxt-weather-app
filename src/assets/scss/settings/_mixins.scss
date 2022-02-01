@@ -124,8 +124,8 @@
 
 @mixin display-grid {
     display: grid;
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 
 @mixin display-between {

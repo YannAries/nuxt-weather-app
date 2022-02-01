@@ -94,8 +94,12 @@ h4 {
     margin-top: 12px;
     font-weight: $prototype-font-bold;
 }
+
 .highlights {
-    @include display-grid;
+    // @include display-grid;
+    display: grid;
+    // -ms-grid-columns: 1fr 1fr;
+    // grid-template-columns: 1fr 1fr;
     row-gap: 48px;
     color: $color-athens-gray;
     > div {
@@ -132,14 +136,22 @@ h4 {
         width: $container-100;
     }
 }
+
 button {
     img {
         transform: rotate(170deg);
     }
 }
+
 .prog {
     .indicators {
         @include display-between;
+        // display: -webkit-box;
+        // display: flex;
+        // -webkit-box-align: center;
+        // align-items: center;
+        // -webkit-box-pack: justify;
+        // justify-content: space-between;
         color: $color-santas-gray;
     }
     .bar {
@@ -165,16 +177,20 @@ button {
         font-size: 12px;
     }
 }
+
 .percentage {
     width: 70%;
 }
+
 @media (min-width: 768px) {
     .highlights {
-        grid-template-columns: none;
+        @include display-grid;
         -moz-column-gap: 48px;
         column-gap: 48px;
+        row-gap: 48px;
     }
 }
+
 @media (min-height: 768px) {
     .highlights {
         p {

@@ -52,19 +52,23 @@ export default {
 #app {
     font-family: $body-font-family;
 }
+
 main {
-    @include display-grid;
+    // @include display-grid;
     height: $global-auto;
     align-items: $global-center;
     overflow: $global-auto;
 }
+
 aside {
     background: $color-vulcan;
     height: $container-100;
     z-index: 10;
 }
+
 @media (min-width: 768px) {
     main {
+        display: grid;
         grid-template-columns: 31% 69%;
         min-height: 100vh;
         overflow: hidden;

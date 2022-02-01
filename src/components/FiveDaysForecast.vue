@@ -33,6 +33,7 @@ export default {
 .weather-forecast {
     @include display-wrap;
 }
+
 .weather-card {
     @include display-between;
     background: $color-mirage;
@@ -52,6 +53,7 @@ export default {
         margin: 20px $global-auto;
     }
 }
+
 .inline-flex {
     display: inline-flex;
     span {
