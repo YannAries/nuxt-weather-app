@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import axios from '@nuxtjs/axios';
+// import axios from '@nuxtjs/axios';
 
 Vue.filter('celcius', function (value) {
     if (!value) return 'F';

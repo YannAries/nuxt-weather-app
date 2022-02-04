@@ -1,11 +1,13 @@
 <template>
     <div class="weather-forecast">
-        <div v-for="day in weatherData.daily.slice(1, 6)" :key="day.dt" class="weather-card">
-            <h5 class="text-center">{{ $moment.unix(day.dt).format('ddd, DD MMM') }}</h5>
+        <div v-for="(day, i) in weatherData.daily.slice(1, 6)" :key="day.dt" class="weather-card">
+            <h5 class="text-center">
+                {{ i === 0 ? 'Tomorrow' : $moment.unix(day.dt).format('ddd, DD MMM') }}
+            </h5>
             <img :src="'https://openweathermap.org/img/w/' + day.weather[0].icon + '.png'" alt="weather" />
             <div class="inline-flex">
-                <span> {{ day.temp.max | tempConvert | mathRound }}</span>
-                <span> {{ day.temp.min | tempConvert | mathRound }}</span>
+                <span> {{ day.temp.max | tempConvert }} </span>
+                <span> {{ day.temp.min | tempConvert }} </span>
             </div>
         </div>
     </div>
