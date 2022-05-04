@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div v-if="weatherData.weather" class="weather-symbol">
-                <!-- <img src="@/assets/svg/cloud_white_24dp.svg" alt="White cloud" /> -->
+                <!-- <nuxt-img src="@/assets/svg/cloud_white_24dp.svg" alt="White cloud" /> -->
                 <img
                     alt="weather icon"
                     :src="'https://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@4x.png'"
@@ -29,7 +29,7 @@
                     <span>{{ currentDateTime() }}</span>
                 </div>
                 <div class="location">
-                    <img src="@/assets/svg/location_on_white_24dp.svg" alt="" />
+                    <img src="@/assets/svg/location_on_white_24dp.svg" alt="location" />
                     <span>{{ weatherData.name }}, {{ weatherData.sys.country }}</span>
                 </div>
             </div>
@@ -196,7 +196,7 @@ aside {
         height: $container-100;
         z-index: 1;
         opacity: 0.1;
-        background: url(@/assets/img/Cloud-background.png) no-repeat;
+        // background: url(@/assets/img/Cloud-background.png) no-repeat;
         background-position: 50%;
         background-size: cover;
     }

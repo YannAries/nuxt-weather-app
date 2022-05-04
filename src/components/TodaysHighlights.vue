@@ -9,10 +9,14 @@
                 </p>
                 <div class="wind">
                     <button type="submit">
-                        <img src="@/assets/svg/near_me_white_24dp.svg" alt="Near me" />
+                        <img
+                            src="@/assets/svg/near_me_white_24dp.svg"
+                            alt="Near me"
+                            sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+                        />
                     </button>
                     <!-- <span :style="`transform: rotate(${{ windDirIcon }}deg)`"
-                        ><img src="@/assets/svg/near_me_white_24dp.svg" alt="Near me"
+                        ><nuxt-img src="@/assets/svg/near_me_white_24dp.svg" alt="Near me"
                     /></span> -->
                     <span>{{ windDirStr }}</span>
                 </div>

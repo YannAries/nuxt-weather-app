@@ -1,10 +1,13 @@
-# Nuxt Starter
+# Nuxt Weather App - BETA
+
+Nuxt Starter cloné et adapté à mes soins 
 
 ## Documentation
 
 - [Vue](https://vuejs.org/)
 - [VueX](https://vuex.vuejs.org/)
 - [Nuxt](https://nuxtjs.org/)
+- [Axios](https://axios.nuxtjs.org/)
 
 ## Utilisation
 
@@ -46,11 +49,7 @@ yarn lint:scss
 
 #### deploy
 
-Le répertoire `deploy` contient les fichiers de configuration pour `deployer`, l'outil de déploiment.
-
-#### env
-
-Le répertoire `env` contient les fichiers de configuration et les commandes personnalisée de `Kubéo`.
+Le répertoire `deploy` contient les fichiers de configuration pour `deployer`, l'outil de déploiement.
 
 #### src
 

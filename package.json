@@ -40,6 +40,7 @@
         "env": "^0.0.2",
         "foundation-sites": "^6.7.3",
         "nuxt": "^2.15.8",
+        "postcss": "^8.4.13",
         "vue-axios-interceptors": "^0.3.2",
         "what-input": "^5.2.10",
         "yarn": "^1.22.17"
@@ -47,6 +48,7 @@
     "devDependencies": {
         "@nuxtjs/eslint-config": "^7.0.0",
         "@nuxtjs/eslint-module": "^3.0.2",
+        "@nuxtjs/pwa": "^3.3.5",
         "@nuxtjs/style-resources": "^1.2.1",
         "@nuxtjs/stylelint-module": "^4.0.0",
         "babel-eslint": "^10.1.0",

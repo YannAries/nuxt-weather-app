@@ -19,6 +19,7 @@ module.exports = {
         'object-shorthand': ['error', 'always'],
         'no-unused-vars': 'warn',
         'vue/no-unused-components': 'warn',
+        'vue/multi-word-component-names': 'off',
         'import/newline-after-import': 'error',
         'vue/padding-line-between-blocks': ['error', 'always'],
         'no-smart-quotes/no-smart-quotes': 'error',

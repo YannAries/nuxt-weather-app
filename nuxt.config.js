@@ -11,12 +11,8 @@ export default {
         port: process.env.PORT,
     },
 
-    // env: {
-    //     OPENWEATHERMAP_API_KEY: process.env.OPENWEATHERMAP_API_KEY
-    // },
-
     publicRuntimeConfig: {
-        nuxtAppWeatherApiKey: process.env.NUXT_APP_WEATHER_API_KEY
+        nuxtAppWeatherApiKey: process.env.NUXT_APP_WEATHER_API_KEY,
     },
 
     /*
@@ -36,24 +32,17 @@ export default {
                 {
                     hid: 'description',
                     name: 'Challenge: Create a weather app using an API',
-                    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                    content: 'Weather app api.',
                 },
             ],
-            link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-            {
-                rel: 'stylesheet',
-                // href:
-                //     'https://fonts.googleapis.com/css2?family=Raleway:wght@500;700&display=swap',
-            },
+            link: [
+                { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+                {
+                    rel: 'stylesheet',
+                },
             ],
-        }
+        };
     },
-
-    /*
-     ** Customize the progress-bar color
-     */
-    // loading: { height: '5px', color: '#0000ff' },
-
     /*
      ** Global CSS
      */
@@ -78,22 +67,15 @@ export default {
         '@nuxtjs/eslint-module',
         // '@nuxtjs/stylelint-module',
         '@nuxtjs/moment',
+        // '@nuxtjs/pwa',
     ],
 
     /*
      ** Nuxt.js modules
      */
-    modules: [
-        '@nuxtjs/sentry',
-        '@nuxtjs/style-resources',
-        '@nuxtjs/i18n',
-        '@nuxtjs/svg',
-        '@nuxtjs/axios',
-    ],
+    modules: ['@nuxtjs/sentry', '@nuxtjs/style-resources', '@nuxtjs/i18n', '@nuxtjs/svg', '@nuxtjs/axios'],
 
-    axios: {
-    },
-
+    axios: {},
 
     module: {
         configureWebpack: {
@@ -156,6 +138,14 @@ export default {
         fix: true,
     },
 
+    // pwa: {
+    //     manifest: {
+    //         name: 'Weather App',
+    //         lang: 'en',
+    //         useWebmanifestExtension: false,
+    //     },
+    // },
+
     /*
      ** Build configuration
      */
@@ -178,5 +168,6 @@ export default {
                 },
             });
         },
+        postcss: null,
     },
 };
