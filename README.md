@@ -1,6 +1,6 @@
 # Nuxt Weather App - BETA
 
-Nuxt Starter cloné et adapté à mes soins 
+Nuxt Starter cloné et adapté.
 
 ## Documentation
 
