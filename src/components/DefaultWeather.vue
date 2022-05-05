@@ -6,7 +6,11 @@
                     Search for places
                 </button>
                 <button class="btn icon" type="submit" @click="clickedBtn">
-                    <img src="@/assets/svg/gps_fixed_white_24dp.svg" alt="User Current location" />
+                    <img
+                        src="@/assets/svg/gps_fixed_white_24dp.svg"
+                        alt="User Current location"
+                        sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+                    />
                 </button>
             </div>
             <div v-if="weatherData.weather" class="weather-symbol">
@@ -29,7 +33,11 @@
                     <span>{{ currentDateTime() }}</span>
                 </div>
                 <div class="location">
-                    <img src="@/assets/svg/location_on_white_24dp.svg" alt="location" />
+                    <img
+                        src="@/assets/svg/location_on_white_24dp.svg"
+                        alt="location"
+                        sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+                    />
                     <span>{{ weatherData.name }}, {{ weatherData.sys.country }}</span>
                 </div>
             </div>
@@ -39,13 +47,21 @@
             <div class="container">
                 <div class="close-bar">
                     <button type="button" @click="showContainer = !showContainer">
-                        <img src="@/assets/svg/close_white_18dp.svg" alt="Close" />
+                        <img
+                            src="@/assets/svg/close_white_18dp.svg"
+                            alt="Close"
+                            sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+                        />
                     </button>
                 </div>
                 <form action="" class="search-bar" @submit.prevent="getWeather">
                     <div>
                         <span>
-                            <img src="@/assets/svg/search_white_24dp.svg" alt="search" />
+                            <img
+                                src="@/assets/svg/search_white_24dp.svg"
+                                alt="search"
+                                sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+                            />
                         </span>
                         <input
                             id="input-search"
