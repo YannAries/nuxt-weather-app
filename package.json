@@ -40,6 +40,7 @@
         "env": "^0.0.2",
         "foundation-sites": "^6.7.3",
         "nuxt": "^2.15.8",
+        "nuxt-speedkit": "^2.0.12",
         "postcss": "^8.4.13",
         "vue-axios-interceptors": "^0.3.2",
         "what-input": "^5.2.10",

@@ -18,7 +18,7 @@ export default {
     /*
      ** Headers of the page
      */
-    head({ $i18n }) {
+    /* head({ $i18n }) {
         return {
             title: 'Weather app',
             meta: [
@@ -42,6 +42,28 @@ export default {
                 },
             ],
         };
+    }, */
+
+    head: {
+        htmlAttrs: {
+            lang: 'fr',
+        },
+        title: 'Weather app',
+        meta: [
+            { charset: 'utf-8' },
+            { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+            { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+            { hid: 'format-detection', name: 'format-detection', content: 'telephone=no' },
+            {
+                hid: 'description',
+                name: 'Challenge: Create a weather app using an API',
+                content: 'Weather app api.',
+            },
+        ],
+        link: [
+            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+            { rel: 'sitemap', type: 'application/xml', href: 'https://localhost/sitemap.xml' },
+        ],
     },
     /*
      ** Global CSS
@@ -73,8 +95,55 @@ export default {
     /*
      ** Nuxt.js modules
      */
-    modules: ['@nuxtjs/sentry', '@nuxtjs/style-resources', '@nuxtjs/i18n', '@nuxtjs/svg', '@nuxtjs/axios'],
+    modules: [
+        '@nuxtjs/sentry',
+        '@nuxtjs/style-resources',
+        '@nuxtjs/i18n',
+        '@nuxtjs/svg',
+        '@nuxtjs/axios',
+        'nuxt-speedkit',
+    ],
 
+    speedkit: {
+        detection: {
+            performance: true,
+            browserSupport: true,
+        },
+
+        performanceMetrics: {
+            device: {
+                hardwareConcurrency: { min: 2, max: 48 },
+                deviceMemory: { min: 2 },
+            },
+            timing: {
+                fcp: 800,
+                dcl: 1200,
+            },
+        },
+
+        pictureFormats: ['jpg|jpeg|png|gif'],
+
+        lazyOffset: {
+            component: '0%',
+            asset: '0%',
+        },
+
+        image: {
+            screens: {
+                default: 320,
+                xxs: 480,
+                xs: 576,
+                sm: 768,
+                md: 996,
+                lg: 1200,
+                xl: 1367,
+                xxl: 1600,
+            },
+        },
+
+        componentAutoImport: false,
+        componentPrefix: undefined,
+    },
     axios: {},
 
     module: {
