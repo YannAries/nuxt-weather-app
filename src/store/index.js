@@ -6,7 +6,7 @@ export const state = () => ({
 export const mutations = {
     changeUnit(state, unit) {
         state.tempUnit = unit;
-        console.log(unit);
+        
     },
     changeDegree(state, degree) {},
 };
