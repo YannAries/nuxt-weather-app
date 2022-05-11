@@ -82,6 +82,8 @@
 </template>
 
 <script>
+const l = (arg) => console.log(arg);
+
 export default {
     name: 'DefaultWeather',
     props: {
@@ -109,15 +111,15 @@ export default {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     (position) => {
-                        
-                        
+                        l(position.coords.latitude);
+                        l(position.coords.longitude);
                     },
                     (error) => {
-                        
+                        l(error.message);
                     },
                 );
             } else {
-                
+                l('Your browser does not support geolocalisation !');
             }
         },
 
