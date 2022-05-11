@@ -1,17 +1,17 @@
-const l = (arg) => console.log(arg);
+const l = (arg) => console.log(arg)
 
 export const state = () => ({
-    tempUnit: 'celcius',
-});
+  tempUnit: 'celcius'
+})
 
 export const mutations = {
-    changeUnit(state, unit) {
-        state.tempUnit = unit;
-        l(unit);
-    },
-    changeDegree(state, degree) {},
-};
+  changeUnit (state, unit) {
+    state.tempUnit = unit
+    l(unit)
+  },
+  changeDegree (state, degree) {}
+}
 
 export const actions = {
-    nuxtServerInit() {},
-};
+  nuxtServerInit () {}
+}
