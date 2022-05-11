@@ -4,10 +4,10 @@ Nuxt Starter cloné et adapté.
 
 ## Documentation
 
-- [Vue](https://vuejs.org/)
-- [VueX](https://vuex.vuejs.org/)
-- [Nuxt](https://nuxtjs.org/)
-- [Axios](https://axios.nuxtjs.org/)
+-   [Vue](https://vuejs.org/)
+-   [VueX](https://vuex.vuejs.org/)
+-   [Nuxt](https://nuxtjs.org/)
+-   [Axios](https://axios.nuxtjs.org/)
 
 ## Utilisation
 
