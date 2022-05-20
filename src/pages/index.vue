@@ -21,7 +21,6 @@ export default {
 
     async asyncData({ $axios, $config }) {
         const apiKey = $config.nuxtAppWeatherApiKey;
-        // console.log(apiKey, 'apiKey');
         // TODO: Renommer data
         const data = await $axios.$get(
             `https://api.openweathermap.org/data/2.5/weather?q=Quebec&APPID=${apiKey}&units=metric`,
